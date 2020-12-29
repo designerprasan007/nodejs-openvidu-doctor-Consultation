@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>BellaPontiS</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <!-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <!-- <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"> -->
+  <!-- iCheck -->
+  <!-- <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css"> -->
+  <!-- JQVMap -->
+  <!-- <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css"> -->
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+  <!-- In common to all the pages  style -->
+  <!-- <link rel="stylesheet" href="/dist/css/index.css"> -->
+  <!-- Respective page  style -->
+  <link rel="stylesheet" href="/dist/css/patient.css">
+  
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <!-- <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css"> -->
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- Logo image -->
+  <link rel="icon" href="/dist/img/bella1.png" type="image/x-icon">
+  <style type="text/css">
+    .video-container {
+      display: none;
+    }
+  </style>
+
+  <script type="text/javascript">
+
+    window.onbeforeunload = function() { 
+      var name = $('#p_name').val();
+        var doc_id = $('#doc_id').text();
+        var link = window.location.href;
+        var room_id = link.slice(32);
+          $.ajax({
+            type: 'POST',
+            url: '/patient_remove',
+            data: {
+            d_id: doc_id,
+            p_name: name,
+            room_name: room_id
+            },
+            success: function (data) {},
+          });
+      return "Sure?"; 
+      };
+    </script>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+  <div id="session">
+    <div class="wrapper">
+      <!-- Navbar -->
+      <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+          </li>
+        </ul>
+        <!-- SEARCH FORM -->
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+          <!-- Messages Dropdown Menu -->
+          <li class="nav-item">
+            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+              <i class="fas fa-th-large"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.navbar -->
+      <!-- Main Sidebar Container -->
+      <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="/index" class="brand-link">
+          <img src="/dist/img/bellapoint.png" alt="Bella PointS" class="brand-image ">
+          <span class="brand-text font-weight-light" style="position: relative;
+        top: 6px;">BellaPontiS</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+
+          <!-- Sidebar user panel (optional) -->
+          <div class="user-panel mt-3 d-flex">
+
+            <div class="info">
+              <a href="#" class="d-block">Available</a>
+            </div>
+
+          </div>
+          <div class="user-panel image mt-2 info">
+            <!-- <img src="dist/img/avatar2.png" class="rounded-circle h-20" alt="User Image" style="border: 1px solid white; width: 30px;">
+                  <p><button type="btn">startcall</button></p> -->
+            <ul class="nav nav-pills nav-sidebar flex-column mb-2 ">
+
+              <li class="nav-item has-treeview menu-open mt-2">
+                <div class="d-flex flex-row startcall justify-content-between p-2">
+                  <div class=""><img src="/dist/img/avatar2.png" class="rounded-circle h-20" alt="User Image"
+                      style="border: 1px solid white; width: 30px;"></div>
+                  <div class=" text-white"><span><%= doc_name %></span></div>
+
+                  <div class=""><i class="fas fa-ellipsis-v text-white "></i></div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+
+          <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+          <div class="container-fluid">
+            <!-- /.row -->
+          </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+          <div id="session">
+            <!-- <div class="d-flex flex-column"> -->
+            <div id="videos" class="remotevideo">
+            </div>
+            <!-- </div> -->
+            <div id="self_hide" class="text-white">
+              <ul class="list-inline">
+                <li class="list-inline-item"><p>You</p> </li>
+                <li class="list-inline-item float-right pr-2">
+                  <h3 id="show_pr" class="rounded-circle px-2"><i class="fas fa-expand"></i></h3>
+                </li>
+                <li class="list-inline-item float-right pr-2">
+                  <h3><i class="fas fa-volume-up"></i></h3>
+                </li>
+              </ul>
+            </div> 
+            <div class="video-container" id="selfvideo" >
+              <div id="ellipsebutton">
+                <!-- <div class="bg-dark navclass"> -->
+                  <div class="ellipseicon " id="ellipse"> <i class="fas fa-ellipsis-h text-white p-2"></i>
+                  </div>
+                <!-- </div>   -->
+              </div>
+            </div>
+            <div id="ellipsecontent">
+              <div class="d-flex flex-column">
+                <div class="settings_ellipse p-2" data-toggle="modal" data-target="#exampleModal"><i
+                    class="fas fa-cog  p-2 mr-2"></i>Device settings</div>
+                <div class="settings_ellipse p-2"  onclick="muteAudio()" id="mute-audio"><i class="fas fa-microphone  p-2 mr-2"></i>Mute Myself</div>
+                <div class="settings_ellipse p-2"   onclick="muteVideo()" id="mute-video"> <i class="fas fa-video  p-2 mr-2"></i> Turn off camera</div>
+                <div class="settings_ellipse p-2" id="hide_pr"> <i class="fas fa-expand-alt  p-2 mr-2"></i>Hide my preview</div>
+              </div>
+            </div>
+
+            <div class="button-overlay" id="calling_buttons">
+              <div class="d-flex flex-row">
+                <div class="p-2">
+                  <button class="btn rounded-circle bg-dark" type="pause" onclick="muteVideo()" id="mute-video">
+                    <div class="callicons "> <i class="fas fa-video text-white p-2" id="vid-btn"></i>
+                  </button>
+                </div>
+
+                <div class="p-2">
+                  <button class="btn rounded-circle bg-dark" type="pause" onclick="muteAudio()" id="mute-audio">
+                    <div class="callicons"><i class="fas fa-microphone text-white p-2" id="vol-btn"></i></div>
+                  </button>
+                </div>
+                <div class="p-2">
+                  <button class="btn rounded-circle bg-dark" type="pause" data-toggle="modal"
+                    data-target="#exampleModalCenter">
+                    <div class="callicons"><i class="fas fa-cog text-white p-2"></i></div>
+                  </button>
+                </div>
+                <div class="p-2">
+                  <button class="btn rounded-circle bg-dark" type="pause" id="leave-room">
+                    <div class="callicons"><i class="fas fa-phone-alt  p-2"></i></div>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"
+              style="display:none">
+
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content patientpopup">
+                  <!-- <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div> -->
+                  <div class="modal-body  modalbody">
+                    <div class="row popupmodal">
+                      <div class="col-md-6 formbox">
+                        <p class="patient_xyz">Welcome!</p>
+                        <p class="welcome_text">Please check in below to let <%= doc_ini %>.<%= doc_name %> know your here</p>
+                        <form>
+                          <div class="form-group">
+                            <p id="doc_id" style="display: none"><%= doc_id %></p>
+                            <input type="text" id="p_name" class="form-control inputbox">
+                            <input type="text" style="display: none" id="b_name" class="form-control inputbox">
+                            <input type="text" style="display: none" id="b_version" class="form-control inputbox">
+                            <input type="text" style="display: none" id="p_form" class="form-control inputbox">
+                          </div>
+                          <button type="button" id="check_in" data-dismiss="modal"
+                            class="btn btn-info w-100">Check-In</button>
+                        </form>
+                      </div>
+                      <div class="col-md-6">
+                        <video autoplay="true" id="videoElement">
+	
+                        </video>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+              </div>
+            </div>
+          </div>
+
+
+        </section>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+      <footer class="main-footer">
+        <strong>Copyright &copy; 2020 Conitor.</strong>
+        All rights reserved.
+        <!-- <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 3.0.4
+      </div> -->
+      </footer>
+     
+      <!-- Control Sidebar -->
+      <!-- <aside class="control-sidebar control-sidebar-dark"> -->
+      <!-- Control sidebar content goes here -->
+      <!-- </aside> -->
+      <!-- /.control-sidebar -->
+    </div>
+
+    <!-- msgs  -->
+    <div class="msg_box" id="chatpopup">
+      <div id="msg_q">
+        <input type="text" class="g_p_id" style="display: none" value="<%= groupcall_pat_id %>" name="">
+        <input type="text" class="g_d_id" style="display: none" value="<%= groupcall_doc_id %>" name="">
+        <input type="text" class="g_room" style="display: none" value="<%= group_room %>" name="">
+        <ul class="list-group msg_ul scrollbar1">
+          <% for( var display of result) { %> 
+            <div id="<%= display.url %>" class="msg_url">
+              <li class="list-group-item"><%= display.msg %></li>
+            </div>
+          <% }  %>
+        </ul>    
+      </div>  
+      <form>
+         <div class="input-group mb-3">
+           <input type="text" class="form-control" placeholder="Enter the Message" id="text_msgs" name="">
+           <div class="input-group-append">
+             <input type="button" class="btn btn-info btn-sm" id="send_msg" value="Send">
+           </div>
+         </div>
+      </form>
+    </div>
+
+        <div class="open-button"  id="p_que_msg">
+          Send Message to Dr. <%= doc_name %>
+        </div>
+    <!-- ./wrapper -->
+
+    <!-- jQuery -->
+    <script src="/plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <!-- <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script> -->
+    <!-- Bootstrap 4 -->
+    <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <!-- <script src="plugins/chart.js/Chart.min.js"></script> -->
+    <!-- Sparkline -->
+    <!-- <script src="plugins/sparklines/sparkline.js"></script> -->
+    <!-- JQVMap -->
+    <!-- <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+  <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script> -->
+    <!-- jQuery Knob Chart -->
+    <!-- <script src="plugins/jquery-knob/jquery.knob.min.js"></script> -->
+    <!-- daterangepicker -->
+    <!-- <script src="plugins/moment/moment.min.js"></script>
+  <script src="plugins/daterangepicker/daterangepicker.js"></script> -->
+    <!-- Tempusdominus Bootstrap 4 -->
+    <!-- <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script> -->
+    <!-- Summernote -->
+    <script src="/plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/dist/js/adminlte.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="/dist/js/pages/dashboard.js"></script>
+    <script src="/js/openvidu-browser-2.14.0.js"></script>
+    <script src="/js/pat_app.js"></script>
+    <script src="/js/patient.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <!-- <script src="dist/js/demo.js"></script> -->
+    
+</body>
+</html>

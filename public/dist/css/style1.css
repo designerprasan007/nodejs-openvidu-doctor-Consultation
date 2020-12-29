@@ -1,0 +1,22 @@
+
+#selfvideo 
+{
+	left: 64%;
+    transform: rotateY(180deg);
+    position: absolute;
+    width: 35%;
+    top: 65px;
+    z-index: 1;
+  
+
+}
+#selfvideo video{
+    /* left: 0%; */
+    /* transform: rotateY(180deg); */
+    /* position: absolute; */
+    /* width: 100%; */
+    /* top: 65px; */
+    /* height: 25vh; */
+    width: 35%;
+    /* z-index: 1; */
+}

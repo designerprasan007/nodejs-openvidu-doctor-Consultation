@@ -1,0 +1,447 @@
+
+html {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif !important;
+}
+
+.text {
+    font-size: 20px;
+    color: black;
+    font-weight: 400;
+}
+
+.small_text {
+    color: grey;
+    font-size: 12px;
+}
+
+.copytext {
+    background-color: #66CCCC !important;
+    color: white;
+}
+
+.myindexcontainer {
+    max-width: 604px;
+    float: left;
+    margin-left: 3px;
+    position: absolute;
+    top: 79px;
+
+}
+
+.user_video {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.video_play {
+    height: 25vh;
+}
+
+.overlay {
+    position: absolute;
+    z-index: 1;
+    display: block;
+}
+
+/* .user-panel .info {
+    /* margin-left: 20px; */
+
+
+[class*=sidebar-dark-] .sidebar a {
+    color: white !important;
+    margin-left: -10px;
+}
+
+[class*=sidebar-dark] .user-panel {
+    border-bottom: 1px solid #ffffff !important;
+}
+
+.myicon {
+    color: #66CCCC;
+    font-size: 36px;
+}
+
+.main-sidebar {
+    background: linear-gradient(90deg, rgba(17, 149, 241, 1) 0%, rgba(29, 173, 210, 1) 50%, rgb(84, 201, 234) 100%) !important;
+}
+
+.nav-pills .nav-link {
+    color: white !important;
+
+}
+
+.sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active {
+    background-color: #1d8fc5 !important;
+}
+
+[class*=sidebar-dark] .brand-link {
+    color: #01abef !important;
+    background-color: #f9f9f9;
+    border-bottom: none !important;
+}
+
+.brand-link .brand-image {
+    float: left;
+    line-height: .8;
+    margin-left: -8px;
+    margin-right: 8px;
+    margin-top: -4px;
+    max-height: 37px;
+    width: auto;
+}
+
+.font-weight-light {
+    font-weight: 500 !important;
+}
+.small_text1 {
+    font-size: 14px;
+    margin-top: -35px;
+    margin-left: 48px;
+    margin-bottom: 20px;
+}
+
+.welcometext {
+    margin-bottom: 28px;
+    margin-top: -25px;
+    margin-left: 48px;
+    font-size: 18px;
+    color: #757575;
+}
+
+.mycontainer {
+    max-width: 604px;
+    float: left;
+    margin-left: 3px;
+    position: absolute;
+    top: 79px;
+}
+
+.user_video {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: flex-end;
+
+}
+.video_play
+{
+    height: 25vh;
+}
+.patientpopup
+{
+    width: 100%!important;
+    position: relative;
+    left: 0px;
+    /* padding: 33px; */
+}
+.patient_xyz
+{
+    font-size: 28px;
+    font-weight: 500;
+}
+.welcome_text
+{
+    margin-bottom: 39px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #0f1821;
+}
+.modalbody
+{
+    padding: 0px!important;
+}
+.formbox
+{
+    padding: 46px;
+}
+
+#videoElement
+{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+/* #selfvideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    z-index: 1;
+    left: -8px;
+    top: 0px;   
+} */
+/* #selfvideo{
+    transform: rotateY(180deg);
+    width: 100%;
+    z-index: 1;
+    object-fit: cover;
+} */
+
+.video-container video{
+    width: 16%;
+    position: absolute;
+    /* height: 96%; */
+    object-fit: cover;
+    /* border-radius: 4px; */
+    z-index: 1111;
+    margin: -1px;
+    left: 83%;
+    top: 100px;
+}
+/* .remotevideo
+{
+  display: flex!important;
+  flex-flow: column wrap!important;
+
+} */
+/* rewritten css */
+/* video[id^="remote-video-str_CAM"] { */
+    /* position: relative;
+    width: 17%!important;
+    display: flex;
+    flex-flow: column;
+    left: 80%!important;
+    z-index: 1111;
+    top: -16px!important;
+    margin: 10px!important; */
+    .remotevideo video
+    {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 222;
+    top: -14px;
+}
+
+/*.self_vid video{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 222;
+    top: -14px;
+}
+*//* .remotevideo
+{
+  display: flex!important;
+  flex-flow: column wrap!important;
+}
+video[id^="remote-video-str_CAM"] {
+    position: absolute;
+    width: 16%!important;
+    left: 82%!important;
+    z-index: 222!important;
+    top: 328px;
+    margin: 15px!important;
+} */
+
+/* .video1
+{ position: relative!important;
+    width: 27%!important;
+    left: 68%!important;
+    z-index: 222!important;
+    top: 13px!important;
+    margin: 10px!important;
+
+} */
+/* /grpcal css */
+/* video[id^="remote-video-str_CAM"] {
+  
+  } */
+  #ellipsebutton{
+    display: block!important;
+    position: absolute;
+    /* width: 234px; */
+    height: 24px;
+    top: 100px;
+    left: 83%;
+    z-index: 2000;
+}
+#ellipsecontent {
+    /* display: none!important; */
+    position: absolute!important;
+    top: 97px;
+    color: white;
+    padding: 12px;
+    right: 13%;
+    width: max-content;
+    line-height: 19px;
+    cursor: pointer;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.58);
+    z-index: 11111;
+
+}
+.navclass {
+    /* height: 20px;
+    width: auto; */
+}
+
+.settings_ellipse {
+    font-size: 16px;
+}
+
+.settings_ellipse:hover {
+    font-size: 16px;
+    background-color: #23585E!important;
+}
+.ellipseicon {
+    position: absolute!important;
+    /* right: -3px; */
+    top: -6px;
+}
+
+/* #local-video-undefined:hover #ellipsebutton {
+    display: block!important;
+    position: absolute;
+    width: 35%;
+    height: 24px;
+    top: 0px;
+    z-index: 1;
+
+} */
+
+  /* video[id^="remote-video-str_CAM"] {
+    position: absolute;
+    width: 100%;
+    left: 0%!important;
+    z-index: 222!important;
+    top: 6px!important;
+  } */
+.button-overlay
+{position: absolute;
+   
+    z-index: 1111;
+    right: 39%;
+    bottom: 49px;
+   
+    /* z-index: 1000;
+    display: flex;
+    justify-content: center;
+    bottom: 38px;
+    right: 30%;
+    position: absolute; */
+ 
+}
+#calling_buttons
+{
+    display: none;
+}
+.callicons
+{
+    height: 43px;
+    position: relative;
+    top: 4px;
+    right: 0px;
+    font-size: 20px;
+}
+.bg-dark
+{
+    background-color: black;
+}
+.showDiv
+{
+    background-color: #EB5757;
+}
+
+.fa-phone-alt
+{
+    transform: rotate(136deg);
+    color: #EB5757;
+}
+
+.fa-video-slash,.rounded-circle
+{
+background-color: #e85858;
+}
+
+ #self_hide 
+{
+    right: 30px;
+    position: absolute;
+    width: 13%;
+    top: 65px;
+    z-index: 1;
+    height: 40px;
+    display: none;
+    background-color: black;
+} 
+
+
+/*chat ui design*/
+.open-button {
+    background-color: #555;
+    color: white;
+    bottom: 0px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    z-index: 1111;
+    right: 0px;
+    width: 200px;
+  }
+  #chatpopup{
+    display: none;
+    position: absolute;
+    right: 0px;
+    width: 238px;
+    height: auto;
+    background-color: #FFFFFF;
+    bottom: 30px;
+  
+  }
+  .msg_ul
+  {
+      min-height: 300px;
+      /* overflow-y: scroll; */
+  }
+  .scrollbar1 {
+ 
+    overflow: auto;
+    height: 20vh;
+    /* this will hide the scrollbar in mozilla based browsers */
+    overflow: -moz-scrollbars-none;
+    /* this will hide the scrollbar in internet explorers */
+    -ms-overflow-style: none;
+  }
+  
+  .scrollbar1::-webkit-scrollbar {
+    width: 0 !important;
+    display: none;
+  }
+  
+  .scrollbar1::-webkit-scrollbar-thumb {
+    background: #262626;
+  }
+  .msg_tab{
+    right: 17%;
+    display: inline-flex;
+    bottom: 0px;
+    position: absolute;
+    z-index: 1000;
+    background-color: black;
+    color: white;
+} 
+
+@media only screen and (max-width: 700px) {
+    .button_class {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .angle_icon {
+        float: right;
+        margin-bottom: 8px;
+        padding-top: 3px;
+    }
+
+}

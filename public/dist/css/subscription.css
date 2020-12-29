@@ -1,0 +1,161 @@
+.subscribe
+{
+    font-size: 30px;
+    font-weight: 400;
+    margin: 0 0 20px;
+}
+.btn-grp
+
+{
+    border: 1px solid #dad4d4;
+}
+.btn1
+{
+    width: 120px;
+    font-weight: 500!important;
+}
+.btn2
+{
+    width: 210px;
+    font-weight: 500!important;
+}
+.offer
+{
+    color: #68CDCD;
+}
+.headertext
+{
+    font-size: 27px;
+    font-weight: 500;
+}
+.cost_det
+{
+    font-size: 27px;
+    font-weight: 400;
+}
+.month
+{
+    font-size: 12px;
+    font-weight: 100;
+}
+.cur_plan
+{
+    font-size: 14px;
+    color: grey;
+}
+.inputbox1
+{
+    border: none!important;
+    box-shadow: none!important;
+
+}
+.carddetails
+{
+    border: 1px solid #dcd8d8;
+    border-radius: 5px;
+}
+.card_image
+{
+    position: absolute;
+    margin-top: 9px;
+    font-size: 21px;
+    color: grey;
+    margin-left: 8px;
+}
+.edit_card,.coupon_card
+{
+    color: #66CCCC;
+    font-size: 14px;
+    cursor: pointer;
+}
+.sync
+{
+    color: #66CCCC;
+    font-size: 20px; 
+}
+.tick{
+color: #66CCCC;
+    font-size: 15px;
+    float: right;
+}
+.payment
+{
+    width: 68%;
+}
+.dateinfo
+{
+    font-size: 14px;
+}
+.myborder
+{
+    border: 5px solid #dcdbdb;
+    box-shadow: none!important;
+    width: 10rem;
+}
+.myborder:hover
+{
+    border: 5px solid #66CCCC;
+}
+.qty
+{
+    width: 55px;
+    text-align: center;
+    padding: 20px 0px 20px 0px;
+}
+.msg_des
+{
+    font-size: 11px;
+    font-weight: 300;
+}
+.add,.minus
+{
+    padding: 20px;
+}
+.tooltip1
+{
+    color: rgb(128, 126, 126);
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-color:#d6d0d0;
+cursor: pointer;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    color: #444343;
+    /* text-align: center; */
+    border-radius: 6px;
+    border: 1px solid #dad8d8;
+    padding: 16px 16px;
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+    /* margin: 20px; */
+    font-size: 12px;
+    -webkit-box-shadow: 4px 6px 5px -1px rgba(230,227,230,0.63);
+-moz-box-shadow: 4px 6px 5px -1px rgba(230,227,230,0.63);
+box-shadow: 4px 6px 5px -1px rgba(230,227,230,0.63);
+  }
+  
+  .tooltip1:hover .tooltiptext {
+    visibility: visible;
+  }
+  .fa-circle
+  {
+      font-size: 5px;
+  }
+  /* .active1 {
+    display: block;
+} */
+
+.secamt{
+    display: none;
+}
+
+.year_price{
+    display: none;
+}

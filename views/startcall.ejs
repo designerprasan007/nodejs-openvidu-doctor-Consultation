@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>BellaPontiS</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Respective page  style -->
+    <link rel="stylesheet" href="/dist/css/startcall.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+    <!-- cusrom select -->
+    <link href="/dist/css/customA11ySelect.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Main content -->
+    <section class="content">
+        <div class="d-flex small_videoContainer">
+            <img src="/dist/img/usericon.png" class="usericon_smallvideo">
+            <div id="ellipsebutton">
+                <nav class="navbar navbar-light bg-dark navclass">
+                    <div class="ellipseicon " id="ellipse"> <i class="fas fa-ellipsis-h text-white p-2"></i>
+                    </div>
+                </nav>
+
+            </div>
+            <div id="ellipsecontent">
+                <div class="d-flex flex-column">
+                    <div class="settings_ellipse p-2" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-cog  p-2 mr-2"></i>Device settings</div>
+                    <div class="settings_ellipse p-2"><i class="fas fa-microphone  p-2 mr-2"></i>Mute Myself</div>
+                    <div class="settings_ellipse p-2"> <i class="fas fa-video  p-2 mr-2"></i>Turn off camera</div>
+                    <div class="settings_ellipse p-2"><i class="fas fa-expand-alt  p-2 mr-2"></i>Hide my preview</div>
+                </div>
+            </div>
+            <!-- Modal  for device settinf -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title heading" id="exampleModalLabel">Device settings</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mypreview">
+                            <img src="/dist/img/usericon.png">
+                        </div>
+                        <form class="p-2">
+                            <div class="row mt-3">
+                                <div class="col-md-3">
+                                    <label class="camerasettings" for="location12">Camera</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <select id="location12" name="category" required>
+                                        <option value="a" selected="selected">USB2.0 VGA WebCam</option>
+                                        <option value="b">USB2.0 VGA WebCam</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="camerasettings" for="audioanalog12">Microphone</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <select id="audioanalog12" name="category" required>
+                                        <option value="a" selected="selected">Built-In Audio Analog Stereo
+                                        </option>
+                                        <option value="b">Default</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="camerasettings" for="audioanalog2">Speakers</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <select id="audioanalog2" name="category" required>
+                                        <option value="a" selected="selected">Built-In Audio Analog Stereo
+                                        </option>
+                                        <option value="b">Default</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+    </div>
+        <div class="video-container">
+
+
+            <div class="image-container ">
+                <img src="/dist/img/usericon.png" class="usericon">
+            </div>
+            <div class="button-overlay">
+                <div class="d-flex flex-row">
+
+                    <div class="p-2">
+                        <button class="btn rounded-circle bg-dark" type="pause" onclick="myvideo()" id="myclass">
+                            <div class="callicons "> <i class="fas fa-video text-white p-2" id="vid-btn"></i> </div>
+                        </button></div>
+                </div>
+                <div class="p-2">
+                    <button class="btn rounded-circle bg-dark" type="pause" onclick="myvol()" id="myclass1">
+                        <div class="callicons"><i class="fas fa-microphone text-white p-2" id="vol-btn"></i>
+                        </div>
+                    </button>
+                </div>
+                <div class="p-2">
+                    <button class="btn rounded-circle bg-dark" type="pause" data-toggle="modal"
+                        data-target="#exampleModalCenter">
+                        <div class="callicons"><i class="fas fa-cog text-white p-2"></i></div>
+                    </button>
+                </div>
+                <div class="p-2">
+                    <button class="btn rounded-circle bg-dark" type="pause">
+                        <div class="callicons"><i class="fas fa-phone-alt  p-2"></i></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h5 class="modal-title heading " id="exampleModalLongTitle">Call settings</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mypreview">
+                            <img src="/dist/img/usericon.png">
+                        </div>
+                        <form class="p-2">
+                            <div class="row mt-3">
+                                <div class="col-md-3">
+                                    <label class="camerasettings" for="location1">Camera</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <select id="location1" name="category" required>
+                                        <option value="a" selected="selected">USB2.0 VGA WebCam</option>
+                                        <option value="b">USB2.0 VGA WebCam</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="camerasettings" for="audioanalog">Microphone</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <select id="audioanalog" name="category" required>
+                                        <option value="a" selected="selected">Built-In Audio Analog Stereo
+                                        </option>
+                                        <option value="b">Default</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="camerasettings" for="audioanalog">Speakers</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <select id="audioanalog1" name="category" required>
+                                        <option value="a" selected="selected">Built-In Audio Analog Stereo
+                                        </option>
+                                        <option value="b">Default</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script> -->
+    <script src="/plugins/jquery/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+    <!-- custom select -->
+    <script src="/dist/js/customA11ySelect.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <!-- <script src="dist/js/demo.js"></script> -->
+    
+    <script>
+        function myvideo() {
+            console.log('clicked');
+            $("#vid-btn").toggleClass('fas fa-video ');
+            $("#vid-btn").toggleClass('fas fa-video-slash');
+        }
+
+        $('#myclass').click(function () {
+            if ($(this).hasClass('bg-dark')) {
+                $(this).removeClass('bg-dark');
+            } else {
+                $('showDIV').removeClass('showDIV');
+                $(this).addClass('bg-dark');
+            }
+        });
+        $('#myclass1').click(function () {
+            if ($(this).hasClass('bg-dark')) {
+                $(this).removeClass('bg-dark');
+            } else {
+                $('showDIV').removeClass('showDIV');
+                $(this).addClass('bg-dark');
+            }
+        });
+
+        function myvol() {
+            console.log('clicked');
+            $("#vol-btn").toggleClass('fas fa-microphone ');
+            $("#vol-btn").toggleClass('fas fa-microphone-slash');
+        }
+        $(document).ready(function () {
+            $('#location1').customA11ySelect();
+        });
+        $(document).ready(function () {
+            $('#audioanalog').customA11ySelect();
+        });
+        $(document).ready(function () {
+            $('#audioanalog1').customA11ySelect();
+        });
+        $(document).ready(function () {
+            $('#location12').customA11ySelect();
+        });
+        $(document).ready(function () {
+            $('#audioanalog12').customA11ySelect();
+        });
+        $(document).ready(function () {
+            $('#audioanalog2').customA11ySelect();
+        });
+        $(document).ready(function () {
+            $("#ellipse").click(function () {
+                $("#ellipsecontent").slideToggle("fast");
+            });
+        });
+        $(document).mouseup(function (e) {
+            var container = $("#ellipsecontent");
+
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
+                container.hide();
+            }
+        });
+    </script>
+</body>
+
+</html>

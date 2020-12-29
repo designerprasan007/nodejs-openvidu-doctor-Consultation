@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="dist/css/login_signup.css">
+    <link href="dist/css/customA11ySelect.css" rel="stylesheet">
+    <title>BellaPontiS</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <form action="">
+              <span class="text-danger login_notmatch" style="display: none" id="singin_alert">please check mail and password</span>
+                <div class="text-center brandlink">
+                    <img src="dist/img/bellapoint.png" class="imgwidth" >
+                </div>
+                <div class="form-title">
+                    <h2>Sign In</h2>
+                </div>
+                <div class="insideform">
+                <div class="form-group">                   
+                    <input type="email" class="form-control inputbox" name="email" id="email" placeholder="Email">
+                     <span class="text-danger" id="mail" style="display: none">enter your email</span>
+                </div>
+                <div class="form-group">                   
+                    <input type="password" class="form-control inputbox" name="password" id="password" placeholder="Password">
+                    <span class="text-danger" id="pass" style="display: none">enter your password</span>
+                </div>
+                <div class="form-check mt-2">
+                    <input type="checkbox" class="form-check-input mycheckbox" name="Remember" id="Remember">
+                    <label class="form-check-label checkboxlabel" for="exampleCheck1">Remember me</label>
+                  </div>
+                </div>
+                <div class="form-group button">
+                    <button class="mybutton" id="signin">Sign In</button>
+                </div>
+                <p class="text-center"><a href="#" class="forgotpassword">forgot password?</a></p>
+            </form>
+          <p class="text-center  linkto mt-5"> Don't have a BellaPontiS account?<a href="/doc_signup" class="forgotpassword ml-1 mr-1"><span>Sign up </span></a> today</p> 
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+     <script src="dist/js/customA11ySelect.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+     <script>
+          $(document).ready(function () {
+            $('#dr').customA11ySelect();
+        });
+     </script>
+    <!-- signin script -->
+   <script>
+      $(document).ready(function () {
+        $('#signin').on('click', function(e){
+            e.preventDefault();
+            var email = $('#email').val();
+            var pass = $('#password').val();
+            var Remember = $('#Remember').is(":checked");
+            if (email == '') {
+             $('#mail').show();
+            }
+            if (pass == '') {
+             $('#pass').show();
+            }
+             if (Remember == true) {
+                 Remember = '1';
+              }
+              // console.log(email + pass + Remember);
+            $.ajax({
+              type: 'POST',
+              url: '/doctor_login',
+              data: {
+                 email :email,
+                 pass : pass,
+                 Remember : Remember
+              },
+              success: function (data) {
+                  console.log(data);
+                  var res = data.slice(7);
+                  resu = res.replace(/\s/g,'')
+                  if(data.startsWith('success')){
+                    window.location.href = "https://pontis.me:5060/index/"+'#'+resu;
+                  }
+                  else if(data == 'failed'){
+                    $('#singin_alert').show();
+                  }
+                },
+              });
+            });
+          });
+   </script>
+   <!-- cookie data to set -->
+     <script type="text/javascript">
+       var cookie_email = $.cookie('email');
+       $("#email").val(cookie_email);
+       var cookie_pass = $.cookie('pass');
+       $("#password").val(cookie_pass);
+     </script>
+
+</body>
+
+</html>

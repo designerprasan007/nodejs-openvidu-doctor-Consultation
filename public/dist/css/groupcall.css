@@ -1,0 +1,47 @@
+.scrollbar1 {
+ 
+    overflow: auto;
+    height: 80vh;
+    /* this will hide the scrollbar in mozilla based browsers */
+    overflow: -moz-scrollbars-none;
+    /* this will hide the scrollbar in internet explorers */
+    -ms-overflow-style: none;
+  }
+  
+  .scrollbar1::-webkit-scrollbar {
+    width: 0 !important;
+    display: none;
+  }
+  
+  .scrollbar1::-webkit-scrollbar-thumb {
+    background: #262626;
+  }
+
+  .button-overlay {
+    /* position: relative;
+    top: 0%!important;
+    text-align: center;
+    display: flex;
+    z-index: 1;
+    bottom: -634px!important;
+    justify-content: center; */
+    position: absolute;
+text-align: center;
+display: flex;
+z-index: 1;
+bottom: 0px;
+justify-content: center;
+}
+.remotevideo
+{
+  display: flex!important;
+  flex-flow: column wrap!important;
+}
+video[id^="remote-video-str_CAM"] {
+  position: relative!important;
+  width: 27%!important;
+  left: 68%!important;
+  z-index: 222!important;
+  top: 13px!important;
+  margin: 10px!important;
+}

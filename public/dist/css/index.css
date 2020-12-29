@@ -1,0 +1,732 @@
+html {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif !important;
+}
+
+.text {
+    font-size: 20px;
+    color: black;
+    font-weight: 400;
+}
+
+.small_text {
+    color: grey;
+    font-size: 12px;
+}
+
+.copytext {
+    background-color: #66CCCC !important;
+    color: white;
+}
+
+.myindexcontainer {
+    max-width: 604px;
+    float: left;
+    margin-left: 3px;
+    position: absolute;
+    top: 79px;
+
+}
+
+.user_video {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.video_play {
+    height: 25vh;
+}
+
+.overlay {
+    position: absolute;
+    z-index: 1;
+    display: block;
+}
+
+/* .user-panel .info {
+    /* margin-left: 20px; */
+
+
+[class*=sidebar-dark-] .sidebar a {
+    color: white !important;
+    margin-left: -10px;
+}
+
+[class*=sidebar-dark] .user-panel {
+    border-bottom: 1px solid #ffffff !important;
+}
+
+.myicon {
+    color: #66CCCC;
+    font-size: 36px;
+}
+
+.main-sidebar {
+    background: linear-gradient(90deg, rgba(17, 149, 241, 1) 0%, rgba(29, 173, 210, 1) 50%, rgb(84, 201, 234) 100%) !important;
+}
+
+.nav-pills .nav-link {
+    color: white !important;
+
+}
+
+.sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active {
+    background-color: #1d8fc5 !important;
+}
+
+[class*=sidebar-dark] .brand-link {
+    color: #01abef !important;
+    background-color: #f9f9f9;
+    border-bottom: none !important;
+}
+
+.brand-link .brand-image {
+    float: left;
+    line-height: .8;
+    margin-left: -8px;
+    margin-right: 8px;
+    margin-top: -4px;
+    max-height: 37px;
+    width: auto;
+}
+
+.font-weight-light {
+    font-weight: 500 !important;
+}
+
+/* indexpage css */
+#content2 {
+    display: none;
+    position: absolute;
+    top: 174px;
+    right: 0%;
+    z-index: 1;
+    cursor: pointer;
+    height: auto;
+    background-color: #FFFFFF;
+}
+
+#calldetails {
+    display: none;
+    position: relative;
+    /* top: 157px; */
+    /* right: 19%; */
+    /* z-index: 1; */
+    cursor: pointer;
+    height: auto;
+    background-color: #FFFFFF;
+}
+
+/* #content_patient
+{
+    display: none;
+    position: absolute;  
+    top: 157px;
+    right: 19%;
+    z-index: 1;
+    
+    height: auto;
+    background-color: #FFFFFF;
+} */
+
+#content3 {
+    display: none;
+    position: absolute;
+    top: 40%;
+    right: 1%;
+    z-index: 1;
+    cursor: pointer;
+    height: auto;
+    background-color: #FFFFFF;
+}
+
+.systemconnection {
+    background-color: #F4F6F5;
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 140px;
+    padding: 10px 16px;
+    color: #000;
+    font-size: 14px;
+    background: #f4f6f5;
+    border-radius: 4px;
+    border: 1px solid #f4f6f5;
+    outline: none;
+    text-align: left;
+    box-sizing: border-box;
+    font-weight: 400;
+}
+
+.mymodaldesign {
+    padding: 0px !important;
+}
+
+.img_design {
+    position: relative;
+    width: 100%;
+
+    overflow: hidden;
+
+}
+
+.img_design img {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+.brotext {
+    font-size: 11px;
+    color: grey;
+    font-weight: 500;
+    margin-top: 38px;
+}
+
+.img_lst {
+    display: flex;
+    margin: 2px -6px;
+    padding: 17px;
+    justify-content: center;
+}
+
+.link_item {
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width: 36.33%;
+    padding: 0 8px;
+}
+
+.listcard {
+    height: 16vh;
+
+    border: 1px solid #bfc3cb;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: none !important;
+    margin-bottom: 0px !important;
+}
+
+.emailcard {
+    height: 14vh;
+    border: 1px solid #bfc3cb;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: none !important;
+    margin-bottom: 0px !important;
+}
+
+.emailtext {
+    font-size: 11px;
+    color: #687182;
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    line-height: 1.25rem;
+    margin-top: 19px;
+}
+
+.none {
+    display: none;
+}
+
+.showDIV {
+    display: block;
+}
+
+.modal-text {
+    color: #606c7c;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    padding: 8px;
+}
+
+.patientlabel {
+    position: relative;
+    display: block;
+    margin-bottom: 11px;
+    font-weight: 500 !important;
+    font-size: 16px;
+    line-height: 19px;
+    color: #687182;
+}
+
+.modal-content {
+    position: relative;
+    left: 45px;
+    width: 80%;
+}
+
+.social_icon {
+    color: #66CCCC;
+}
+
+.social_text {
+    color: grey !important;
+    border-bottom: none !important;
+    margin-left: -14px;
+
+}
+
+.social_text:hover {
+    color: #66CCCC !important;
+    border-bottom: none !important;
+    margin-left: -14px;
+}
+
+.liststyle {
+    color: #66CCCC !important;
+    border-bottom: none !important;
+    margin-top: -15px;
+}
+
+.liststyle:hover {
+    color: #66CCCC !important;
+    border-bottom: none !important;
+    background-color: #F4F6F5 !important;
+    margin-top: -15px;
+
+}
+
+.inputbox {
+    background-color: #f4f6f5 !important;
+    border: none;
+}
+
+.inputbox:focus {
+    border: 1px solid rgb(184, 184, 184);
+    background-color: #f4f6f5 !important;
+}
+
+/* back to dashboard */
+.back {
+    font-size: 14px !important;
+    line-height: 22px !important;
+    text-align: center;
+    color: #5f6a7d !important;
+    font-weight: 500 !important;
+}
+
+.back:hover {
+    color: #66CCCC !important;
+}
+
+.inviteheading {
+    margin: 0;
+    color: #000;
+    font-size: 20px !important;
+    line-height: 27px;
+    font-weight: 500 !important;
+    word-break: break-word;
+}
+
+.emailselection {
+    font-weight: 400;
+    font-size: 14px;
+    color: #000;
+    cursor: pointer;
+
+    margin-bottom: 13px;
+}
+
+.mycontext {
+    background-color: #F3F3F3;
+
+}
+
+.checkinput {
+    margin-top: 7px;
+}
+
+.btnstyle {
+    border: 1px solid grey;
+}
+
+.btnstyle1 {
+    background-color: #66CCCC !important;
+    color: white !important;
+}
+
+#startcallbutton {
+    visibility: hidden;
+}
+
+#patientname {
+    visibility: visible;
+    position: relative;
+    color: white;
+    left: 20px;
+    line-height: 25px;
+    font-weight: 600;
+}
+
+.startcall:hover #startcallbutton {
+    visibility: visible;
+    position: relative;
+
+}
+
+.startcall:hover #patientname {
+    visibility: hidden;
+    position: absolute;
+}
+
+.startcall:hover {
+    background-color: rgb(79, 165, 245);
+}
+
+.mybutton {
+
+    background-color: #ffc477;
+
+    border-radius: 4px;
+    border: 1px solid #eeb44f;
+    display: inline-block;
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    height: 30px;
+    line-height: 9px;
+    padding: 10px;
+    width: auto;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 0px 1px 0px #cc9f52;
+}
+
+.mybutton:hover {
+    background-color: #fb9e25;
+}
+
+.mybutton:active {
+    position: relative;
+    top: 1px;
+}
+
+/* telephone selctor */
+.iti--allow-dropdown input,
+
+.iti--allow-dropdown input[type=tel]
+
+{
+    padding-right: 103px!important;
+    padding-left: 70px!important;
+    margin-left: 0;
+}
+/* custome select css inuput box */
+.custom-a11yselect-container .custom-a11yselect-btn {
+    background-color: #f4f6f5 !important;
+    border: none!important;
+}
+
+ #self_hide 
+{
+	right: 30px;
+    position: absolute;
+    width: 13%;
+    top: 65px;
+    z-index: 1;
+    height: 40px;
+    display: none;
+    background-color: black;
+} 
+#selfvideo:hover {
+    /* -ms-transform: scale(0.5); 
+    -webkit-transform: scale(0.5); 
+    transform: scale(0.5);  */
+
+}
+
+#selfvideo video {
+    /* left: 0%; */
+    /* transform: rotateY(180deg); */
+    /* position: absolute; */
+    /* width: 100%; */
+    /* top: 65px; */
+    /* height: 25vh; */
+    /* width: 35%; */
+    /* z-index: 1; */
+}
+
+#selfvideo:hover #myfooter {
+    position: relative;
+    width: 35%;
+
+    top: 150px;
+    z-index: 1;
+}
+
+#ellipsebutton,
+#myfooter {
+    display: none;
+
+
+}
+
+.myclass[type=text] {
+    font-size: 12px;
+}
+
+.ellipseicon {
+    position: absolute;
+    right: -3px;
+    top: -8px;
+}
+
+#selfvideo:hover #ellipsebutton {
+    display: block;
+    position: absolute;
+    width: 35%;
+    height: 24px;
+    top: 0px;
+    z-index: 1;
+
+}
+
+#selfvideo:hover #ellipsebutton1 {
+    display: block;
+    position: absolute;
+    width: 100%;
+    /* height: 24px; */
+    bottom: -98px;
+    z-index: 1;
+
+}
+
+/* #ellipsecontent:hover #ellipsebutton
+{
+	display: block;
+} */
+
+#ellipsecontent {
+    display: none;
+    position: absolute;
+    /* top: 26px; */
+    color: white;
+    padding: 12px;
+    right: 220px;
+    width: max-content;
+    line-height: 19px;
+    cursor: pointer;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.58);
+    z-index: 1;
+}
+
+.navclass {
+    height: 20px;
+}
+
+.settings_ellipse {
+    font-size: 16px;
+}
+
+.settings_ellipse:hover {
+    font-size: 16px;
+    background-color: #23585E;
+}
+
+/* .remotevideo {
+    width: 100%;
+} */
+.remotevideo
+{
+  display: flex!important;
+  flex-flow: column wrap!important;
+}
+video[id^="remote-video-str_CAM"] {
+  position: relative!important;
+  width: 20%!important;
+  left: 75%!important;
+  z-index: 222!important;
+  top: 13px!important;
+  margin: 10px!important;
+}
+
+video {
+    /* min-width: 33%; */
+    /* flex: 1;
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	flex-wrap: wrap;
+	justify-content: center; */
+}
+/* chat UI */
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+    background-color: #555;
+    color: white;
+    bottom: 0px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    z-index: 1111;
+    right: 0px;
+    width: 200px;
+  }
+  #chatpopup{
+    display: none;
+    position: absolute;
+    right: 0px;
+    width: 238px;
+    height: auto;
+    background-color: #FFFFFF;
+    bottom: 30px;
+  
+  }
+  .msg_ul
+  {
+      min-height: 300px;
+      /* overflow-y: scroll; */
+  }
+  .scrollbar1 {
+ 
+    overflow: auto;
+    height: 20vh;
+    /* this will hide the scrollbar in mozilla based browsers */
+    overflow: -moz-scrollbars-none;
+    /* this will hide the scrollbar in internet explorers */
+    -ms-overflow-style: none;
+  }
+  
+  .scrollbar1::-webkit-scrollbar {
+    width: 0 !important;
+    display: none;
+  }
+  
+  .scrollbar1::-webkit-scrollbar-thumb {
+    background: #262626;
+  }
+  .msg_tab{
+    right: 17%;
+    display: inline-flex;
+    bottom: 0px;
+    position: absolute;
+    z-index: 1000;
+    background-color: black;
+    color: white;
+} 
+
+@media only screen and (max-width: 700px) {
+    .button_class {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .angle_icon {
+        float: right;
+        margin-bottom: 8px;
+        padding-top: 3px;
+    }
+
+}
+
+.hide_previ{
+    height: 15px;
+    width: 0px
+}
+/* popup css */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* The actual popup */
+ .popuptext {
+    border: 1px solid grey;
+    width: 82%;
+    background-color: white;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 12px 22px;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    /* height: 22vh; */
+    display: none;
+  }
+  
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Toggle this class - hide and show the popup */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+  /* .font_icons
+  {
+      color: black;
+  } */
+  .mybtn{
+    width: max-content!important;
+  }
+  .videoicon,.check,.microphone
+  {
+      color: rgb(16, 199, 16);
+  }
+  .pat_name
+  {
+      color: black;
+      width: max-content;
+      font-weight: 600;
+  }
+  .system_details
+  {
+      border-radius: 5px;
+      padding: 15px;
+      background-color: #d6d6d6;
+
+      margin-top: 34px;
+  }
+  .time_status
+  {
+    color: black;
+    float: left;
+  }
+  .online
+  {
+      font-size: 12px;
+      color: rgb(16, 199, 16);
+  }

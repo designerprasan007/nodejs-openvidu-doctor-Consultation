@@ -1,0 +1,889 @@
+ <!DOCTYPE html>
+ <html>
+
+ <head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>BellaPontiS</title>
+   <!-- Tell the browser to be responsive to screen width -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- Font Awesome -->
+   <link rel="stylesheet" type="text/css" href="/plugins/fontawesome-free/css/all.min.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   <!-- Ionicons -->
+
+   <!-- Theme style -->
+   <link rel="stylesheet" type="text/css" href="/dist/css/adminlte.min.css">
+   <!-- My style -->
+   <link rel="stylesheet" type="text/css" href="/dist/css/index.css">
+   <link rel="stylesheet" type="text/css" href="/dist/css/style1.css">
+   <!--telephone country select css -->
+   <link rel="stylesheet" href="/dist/css/intlTelInput.css">
+
+   <!-- button styel progess -->
+   <link rel="stylesheet" type="text/css" href="/dist/css/component.css" />
+   <!-- overlayScrollbars -->
+   <link rel="stylesheet" type="text/css" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+   <!-- Daterange picker -->
+
+   <!-- Google Font: Source Sans Pro -->
+   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+   <!-- cusrom select -->
+   <link href="/dist/css/customA11ySelect.css" rel="stylesheet">
+   <!-- <link rel="styleSheet" href="../css/style.css" type="text/css" media="screen"> -->
+   <!-- Logo image -->
+   <link rel="icon" href="/dist/img/bella1.png" type="image/x-icon">
+   <script src="/js/openvidu-browser-2.14.0.js"></script>
+   <script src="/js/app.js"></script>
+ </head>
+
+ <body class="hold-transition sidebar-mini layout-fixed">
+   <div class="wrapper">
+
+     <!-- Navbar -->
+     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+       <!-- Left navbar links -->
+       <ul class="navbar-nav">
+         <li class="nav-item">
+           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+         </li>
+
+       </ul>
+
+       <!-- SEARCH FORM -->
+
+
+       <!-- Right navbar links -->
+       <ul class="navbar-nav ml-auto">
+         <!-- Messages Dropdown Menu -->
+
+         <li class="nav-item">
+           <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+             <i class="fas fa-th-large"></i>
+           </a>
+         </li>
+       </ul>
+     </nav>
+     <!-- /.navbar -->
+
+     <!-- Main Sidebar Container -->
+     <aside class="main-sidebar sidebar-dark-primary elevation-4">
+       <!-- Brand Logo -->
+       <a href="/index/#<%= room_name %>" class="brand-link">
+         <img src="/dist/img/bellapoint.png" alt="Bella PointS" class="brand-image  ">
+         <span class="brand-text font-weight-light" style="position: relative;
+        top: 6px;">BellaPontiS</span>
+       </a>
+
+       <!-- Sidebar -->
+       <div class="sidebar">
+
+         <!-- Sidebar user panel (optional) -->
+         <div class="user-panel mt-3 d-flex">
+
+           <div class="info">
+             <a href="#" class="d-block">Patient Queue</a>
+           </div>
+
+         </div>
+         <!-- <p class="text-white">No one has checked in yet </p>id="p_que" -->
+         <div class="user-panel image mt-2 info" style="height: auto;"id="p_que" >
+           <!-- <img src="dist/img/avatar2.png" class="rounded-circle h-20" alt="User Image" style="border: 1px solid white; width: 30px;">
+          <p><button type="btn">startcall</button></p> -->
+           <ul class="nav nav-pills nav-sidebar flex-column mb-2 " data-widget="treeview" role="menu"
+             data-accordion="false">
+             <% for( var display of result) { %>
+             <% if(display.d_id == doc_id) { %>
+             <% if(display.patient_name !== '') { %>
+             <li class="nav-item has-treeview menu-open mt-2">
+               <div class="d-flex flex-row startcall justify-content-between p-2">
+                 <div class=""><img src="/dist/img/avatar2.png" class="rounded-circle h-20" alt="User Image"
+                     style="border: 1px solid white; width: 30px;"></div>
+                 <div class=" " id="patientname"><%= display.patient_name %></div>
+                 <div id="startcallbutton" class="startcallbtn" onclick="startcallbtn(this)"><span>
+                     <input type="text" style="display: none" class="doc_id" value="<%= doc_id %>">
+                     <input type="text" style="display: none" class="p_name" value="<%= display.patient_name %>">
+                     <input type="text" style="display: none" class="pat_id" value="<%= display.patient_id %>">
+                     <input type="text" style="display: none" class="url" value="<%= display.url %>">
+                     <a class="mybutton">Start call</a></span>
+                 </div>
+                 <div class="popup" onclick="pat_details(this)" id="calldata"><i class="fas fa-ellipsis-v text-white "></i>
+                     <input type="text" style="display: none" class="p_id" value="<%= display.patient_id %>">
+                </div>
+
+               </div>
+
+             </li>
+             <% }  %>
+             <% }  %>
+             <% }  %>
+           </ul>
+
+         </div>
+       
+         <!-- Sidebar Menu -->
+         <div class="user-panel mt-3 d-flex">
+
+           <div class="info">
+             <a href="#" class="d-block">Accounts</a>
+           </div>
+         </div>
+         <nav class="mt-2">
+           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+             <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+             <li class="nav-item has-treeview menu-open">
+               <a href="/index/#<%= room_name %>" class="nav-link ">
+                 <i class="nav-icon fas fa-tachometer-alt"></i>
+                 <p>
+                   Your Dashboard
+                   <!-- <i class="right fas fa-angle-left"></i> -->
+                 </p>
+               </a>
+
+             </li>
+             <li class="nav-item">
+               <a href="/doc_edit" class="nav-link">
+                 <i class="nav-icon fas fa-edit"></i>
+                 <p>
+                   Edit Waiting Room
+                   <!-- <span class="right badge badge-danger">New</span> -->
+                 </p>
+               </a>
+             </li>
+
+             <li class="nav-item has-treeview">
+               <a href="/accounts" class="nav-link">
+                 <i class="nav-icon  fas fa-cogs"></i>
+                 <p>
+                   Account Settings
+                   <!-- <i class="right fas fa-angle-left"></i> -->
+                 </p>
+               </a>
+
+             </li>
+             <li class="nav-item has-treeview">
+               <a href="/meetings" class="nav-link">
+                 <i class="nav-icon fas fa-file-medical-alt"></i>
+                 <p>
+                   Meeting History
+                   <!-- <i class="fas fa-angle-left right"></i> -->
+                 </p>
+               </a>
+
+             </li>
+             <li class="nav-item has-treeview">
+               <a href="#" class="nav-link">
+                 <i class="nav-icon fab fa-hire-a-helper"></i>
+                 <p>
+                   Help Center
+                   <!-- <i class="fas fa-angle-left right"></i> -->
+                 </p>
+               </a>
+
+             </li>
+             <li class="nav-item has-treeview">
+               <a href="/logout" class="nav-link">
+                 <i class="nav-icon fas fa-sign-out-alt"></i>
+                 <p>
+                   Logout
+                   <!-- <i class="fas fa-angle-left right"></i> -->
+                 </p>
+               </a>
+
+           </ul>
+         </nav>
+
+         <!-- /.sidebar-menu -->
+       </div>
+       <!-- /.sidebar -->
+     </aside>
+
+     <!-- Content Wrapper. Contains page content -->
+     <div class="content-wrapper">
+       <!-- Content Header (Page header) -->
+       <div class="content-header">
+
+       </div>
+       <!-- /.content-header -->
+
+       <!-- Main content -->
+       <section class="content">
+         <div id="session">
+          <div id="self_hide" class="text-white">
+            <ul class="list-inline">
+              <li class="list-inline-item"><p>You</p> </li>
+              <li class="list-inline-item float-right pr-2">
+                <h3 id="show_pr" class="rounded-circle px-2"><i class="fas fa-expand"></i></h3>
+              </li>
+              <li class="list-inline-item float-right pr-2">
+                <h3><i class="fas fa-volume-up"></i></h3>
+              </li>
+            </ul>
+          </div>
+           <div id="selfvideo">
+             <div id="ellipsebutton">
+               <nav class="navbar navbar-light bg-dark navclass">
+                 <div class="ellipseicon " id="ellipse"> <i class="fas fa-ellipsis-h text-white p-2"></i>
+                 </div>
+               </nav>
+             </div>
+
+             <!-- <div id="myfooter">
+              <nav class="navbar bg-dark navclass" ></nav>
+            </div> -->
+           </div>
+
+           <div id="ellipsecontent">
+             <div class="d-flex flex-column">
+                <div class="settings_ellipse p-2" data-toggle="modal" data-target="#exampleModal">
+                  <i class="fas fa-cog  p-2 mr-2"></i>Device settings
+                </div>
+                <div class="settings_ellipse p-2" onclick="muteAudio()">
+                  <i class="fas fa-microphone  p-2 mr-2"></i>Mute Myself
+                </div>
+                <div class="settings_ellipse p-2" onclick="muteVideo()"> 
+                  <i class="fas fa-video  p-2 mr-2"></i> Turn off camera
+                </div>
+               <div class="settings_ellipse p-2" id="hide_pr"> <i class="fas fa-expand-alt  p-2 mr-2"></i>Hide my preview</div>
+             </div>
+           </div>
+           <!-- <div id="videos" class="row no-margin">
+          </div> -->
+         </div>
+         <div class="container myindexcontainer">
+           <div class="card">
+             <div class="card-body">
+               <h1>Welcome, <%= initial %>.&nbsp;<%= name %></h1>
+               <small class="small_text ">To invite someone to your meeting room, share this link</small>
+
+               <!-- <form class="mt-2"> -->
+               <div class="row text-center">
+                 <!-- <div class="row"> -->
+                 <div class="col-md-8">
+                   <div class="input-group">
+                     <input type="text" aria-label="First name" class="form-control inputbox myclass" id="copylink"
+                       value="https://pontis.me:5060/index/#<%= room_name %>">
+                     <div class="input-group-prepend ">
+                       <span><button type="button" class="input-group-text copytext " id="share_link">Copy</button>
+                       </span>
+
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col-md-4  ">
+                   <button type="button" class="btn btn-outline-info button_class" id="hideshow2">Invite via &nbsp;<i
+                       class="fas fa-angle-down angle_icon"></i></button>
+                 </div>
+               </div>
+               <div id="content2" class="shadow">
+
+                 <ul class="list-group list-group-flush">
+                   <li class="list-group-item liststyle"><button type="button" class="btn social_text"
+                       data-toggle="modal" data-target="#exampleModalCenter"><i
+                         class="far fa-envelope mr-3 social_icon"></i>Email</button></li>
+                   <li class="list-group-item liststyle"><button type="button" class="btn social_text"
+                       data-toggle="modal" data-target="#exampleModalCenter1"><i
+                         class="fas fa-calendar-alt mr-3 social_icon"></i>Calendar</button> </li>
+                   <li class="list-group-item liststyle"><button type="button" class="btn social_text"
+                       data-toggle="modal" data-target="#exampleModalCenter2"><i
+                         class="far fa-comments mr-3 social_icon"></i>Text Message</button></li>
+                   <li class="list-group-item liststyle"><button type="button" class="btn social_text"
+                       data-toggle="modal" data-target="#exampleModalCenter3"><i
+                         class="fas fa-plus-square mr-3 social_icon"></i>Website badge</button></li>
+                   <li class="list-group-item liststyle"><button type="button" class="btn social_text"
+                       data-toggle="modal" data-target="#exampleModalCenter4"><i
+                         class="fas fa-print mr-3 social_icon"></i>Prints</button></li>
+                 </ul>
+               </div>
+               <!-- </div> -->
+               <!-- </form> -->
+
+             </div>
+           </div>
+
+           <!-- modal for scoial icons -->
+           <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+             <div class="modal-dialog modal-dialog-centered" role="document">
+               <div class="modal-content">
+                 <div class="modal-header">
+                   <h5 class="modal-title" id="exampleModalLongTitle"><i class="far fa-envelope mr-3 "></i><span
+                       class="inviteheading">Invite via Email</span> </h5>
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                   </button>
+                 </div>
+                 <div class="modal-body mycontext">
+                   <form>
+                     <div class="form-check">
+                       <input class="form-check-input checkinput" type="radio" name="exampleRadios" id="exampleRadios1 "
+                         onclick="default_email()" value="option1">
+                       <label class="form-check-label" for="exampleRadios1">
+                         <span class="emailselection"> Use my default email client</span>
+                       </label>
+                     </div>
+
+                     <div class="form-check mt-2">
+                       <input class="form-check-input checkinput" type="radio" name="exampleRadios" id="exampleRadios2 "
+                         onclick="webservice()" value="option2">
+                       <label class="form-check-label" for="exampleRadios2">
+                         <span class="emailselection"> Use web service (e.g. Gmail, Hotmail, etc.)</span>
+                       </label>
+                     </div>
+
+                     <div class="form-check mt-2">
+                       <input class="form-check-input checkinput" type="radio" name="exampleRadios" id="exampleRadios3 "
+                         onclick="doxy_me()" value="option3 ">
+                       <label class="form-check-label" for="exampleRadios3">
+                         <span class="emailselection">Send from BellaPontiS</span>
+                       </label>
+                     </div>
+                   </form>
+                 </div>
+                 <div class="modal-footer ">
+                   <div id="default_email" class="none">
+                     <button type="button" class="btn btnstyle " data-dismiss="modal">Cancel</button>
+                     <a type="button" class="btn  btnstyle1" href="mailto:<%= email %>">start composing the email</a>
+                   </div>
+                   <div id="webservice" class="none">
+                     <div class="d-flex">
+                       <div class="link_item">
+                         <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&su=invitation for pontis&body=Hello,+this+is+<%=initial%>.+<%=name%>+-+please+join+me+for+a+secure+video+call:+%0D%0Dhttps://pontis.me:5060/index/<%= room_name %>+%0D%0DUse+a+computer+or+device+with+a+good+internet+connection+and+webcam.+If+you+run+into+issues+connecting,+restart+your+computer+or+check+out+the+pontis.me+http://help.pontis.me+%0D%0DSimple,+free,+and+secure+telemedicine+powered+by+https://pontis.me"
+                           target="_blank">
+                           <div class="card emailcard">
+                             <div class="card-body">
+                               <img src="/dist/img/gmail.jpg" style="width:100%">
+                               <p class="emailtext">Use Gmail</p>
+                             </div>
+                           </div>
+                         </a>
+                       </div>
+                       <div class="link_item">
+                         <a href="http://compose.mail.yahoo.com/?&subj=Telemedicine%20meeting%20invitation&body=Hello,%20this%20is%20<%=initial%>.%20<%=name%>%20-%20please%20join%20me%20for%20a%20secure%20video%20call:%20%0D%0Dhttps://pontis.me:5060/index/<%= room_name %>%20%0D%0DUse%20a%20computer%20or%20device%20with%20a%20good%20internet%20connection%20and%20webcam.%20If%20you%20run%20into%20issues%20connecting,%20restart%20your%20computer%20or%20check%20out%20the%20pontis.me%20http://help.pontis.me%20%0D%0DSimple,%20free,%20and%20secure%20telemedicine%20powered%20by%20https://pontis.me"
+                           target="_blank">
+                           <div class="card emailcard">
+                             <div class="card-body">
+                               <img src="/dist/img/yahoo.jpeg" style="width:75%">
+                               <p class="emailtext">Use Yahoo</p>
+                             </div>
+                           </div>
+                         </a>
+                       </div>
+                       <div class="link_item">
+                         <a href="https://outlook.live.com/owa/?path=/mail/action/compose&?&subject=Telemedicine%20meeting%20invitation&body=Hello,%20this%20is%20<%=initial%>.%20<%=name%>%20-%20please%20join%20me%20for%20a%20secure%20video%20call:%20%0D%0Dhttps://pontis.me:5060/index/<%= room_name %>%20%0D%0DUse%20a%20computer%20or%20device%20with%20a%20good%20internet%20connection%20and%20webcam.%20If%20you%20run%20into%20issues%20connecting,%20restart%20your%20computer%20or%20check%20out%20the%20pontis.me%20http://help.pontis.me%20%0D%0DSimple,%20free,%20and%20secure%20telemedicine%20powered%20by%20https://pontis.me"
+                           target="_blank">
+                           <div class="card emailcard">
+                             <div class="card-body">
+                               <img src="/dist/img/outlook.webp" style="width:53%">
+                               <p class="emailtext">Use Outlook</p>
+                             </div>
+                           </div>
+                         </a>
+                       </div>
+                     </div>
+                   </div>
+                   <div id="doxy_me" class="none">
+                     <div class="p-2">
+                       <label class="patientlabel">Patient Email</label>
+                       <div class="form-group">
+                         <input type="email" class="form-control inputbox">
+                       </div>
+
+                       <label class="patientlabel">Location</label>
+                       <select id="cars" name="category" required>
+                         <option value="1" selected="selected">https://pontis.me:5060/index/#<%= room_name %>
+                         </option>
+                       </select>
+                       <label class="patientlabel">The message:</label>
+                       <p>Hello, <%= initial %>. <%= name %> has invited you to join a secure video call:</p>
+                       <p>https://pontis.me:5060/index/#<%= room_name %></p>
+                       <p>Make sure you are using a device with good internet connection and access to camera/audio. If
+                         you need any assistance please check out the BellaPontiS Help Center or contact your provider
+                         directly.</p>
+                     </div>
+                     <div class="float-right">
+                       <button type="button" class="btn btnstyle " data-dismiss="modal">Cancel</button>
+                       <button type="button" class="btn  btnstyle1 ml-2">Upgrade to professional or Clinic</button>
+                     </div>
+                   </div>
+
+                 </div>
+               </div>
+             </div>
+           </div>
+
+           <!-- calendar Modal -->
+           <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+             <div class="modal-dialog modal-dialog-centered" role="document">
+               <div class="modal-content">
+                 <div class="modal-header">
+                   <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fas fa-calendar-alt mr-3 "></i><span
+                       class="inviteheading">Invite via Calendar</span></h5>
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                   </button>
+                 </div>
+                 <div class="modal-body">
+                   <form>
+                     <label class="patientlabel"> Set date and time</label>
+                     <div class="form-group">
+                      <input type="date" id="currentDate">
+                      <input type="time" id="currentTime">
+                     </div>
+                     <label class="patientlabel">Location</label>
+                     <select id="location" name="category" required>
+                       <option value="1" selected="selected">https://pontis.me:5060/index/#<%= room_name %>
+                       </option>
+                     </select>
+                     <label class="patientlabel">Notes</label>
+                     <!-- <div> -->
+                     <textarea class="systemconnection">Use a computer or device with a good internet connection and webcam. If you run into issues connecting, restart your computer or check out the DBellaPontiS https://help.BellaPontiS. 
+                       Simple, free, and secure telemedicine powered by https://BellaPontiS
+                      </textarea>
+                     <!-- </div> -->
+                   </form>
+                 </div>
+                 <div class="modal-footer">
+                   <button type="button" class="btn btnstyle" data-dismiss="modal">Close</button>
+                   <button type="button" class="btn btnstyle1" id="calenderoption">Add to Calendar<i
+                       class="fas fa-angle-down angle_icon ml-3"></i></button>
+                   <div id="content3" class="shadow">
+                     <ul class="list-group list-group-flush">
+                       <li class="list-group-item liststyle">
+                        <button type="button" class="btn social_text" onclick="javascript:cal_single.download('Pontis_call')">
+                          <i class="fas fa-cloud-upload-alt mr-3 social_icon"></i>iCalendar</button></li>
+                       <li class="list-group-item liststyle">
+                        <a id="gcal" target="_blank" type="button" class="btn social_text">
+                          <i class="fab fa-google mr-3 social_icon"></i> Google Calendar
+                        </a>
+                      </li>
+                      <li class="list-group-item liststyle">
+                        <a  id="out_cal" target="_blank" type="button" class="btn social_text">
+                          <i class="fab fa-windows  mr-3 social_icon"></i>Outlook
+                        </a>
+                      </li>
+                        <li class="list-group-item liststyle">
+                          <a id="yahoo" target="_blank" type="button" class="btn social_text">
+                            <i class="fab fa-yahoo mr-3 social_icon"></i> Yahoo! Calendar
+                          </a>
+                        </li>
+                        <li class="list-group-item liststyle">
+                          <button type="button" class="btn social_text">
+                          <a id="Microsoft" target="_blank" type="button" class="btn social_text">
+                            <i class="fab fa-windows  mr-3 social_icon"></i>Microsoft Calendar
+                          </a>
+                          </button>
+                        </li>
+                     </ul>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <!-- text message Modal -->
+           <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+             <div class="modal-dialog modal-dialog-centered" role="document">
+               <div class="modal-content ">
+                 <div class="modal-header">
+                   <h5 class="modal-title" id="exampleModalCenterTitle"><i class="far fa-comments mr-3 "></i><span
+                       class="inviteheading">Invite via Text Message</span></h5>
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                   </button>
+                 </div>
+                 <div class="modal-body">
+                   <label class="patientlabel">Patient phone number</label>
+                   <div class="input-group mb-2">
+                     <!-- telephone nuber selctor bar -->
+                     <input type="tel" class="form-control inputbox" id="phone" name="phone">
+                   </div>
+
+                   <label class="patientlabel" for="cars">Location</label>
+                   <select id="location1" name="category" class="inputbox" required>
+                      <option value="a" selected="selected">
+                        https://pontis.me:5060/index/#<%= room_name %>
+                      </option>
+                      <option value="b">
+                        https://pontis.me:5060/index/#<%= room_name %>
+                      </option>
+                   </select>
+                 </div>
+                 <div class="modal-footer">
+                   <button type="button" class="btn btnstyle" data-dismiss="modal">Cancel</button>
+                   <button type="button" class="btn btnstyle1">Upgrade to Professional or Clinic</button>
+                 </div>
+               </div>
+             </div>
+           </div>
+
+           <!-- website badge Modal -->
+           <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+             <div class="modal-dialog modal-dialog-centered" role="document">
+               <div class="modal-content">
+                 <div class="modal-header">
+                   <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fas fa-plus-square  mr-3 "></i><span
+                       class="inviteheading">Invite via Website Badge</span></h5>
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                   </button>
+                 </div>
+                 <div class="modal-body mymodaldesign" style="background-color: #f3f3f3;">
+                   <div class="img_design">
+                     <img src="/dist/img/website-badge.webp">
+                   </div>
+                   <p class="modal-text">
+                     Make it easy for your patients to get to your BellaPontiS room from
+                     your own website. Select, copy, and add your customized
+                     badge to your website today.
+                   </p>
+                 </div>
+                 <div class="modal-footer">
+                   <button type="button" class="btn btnstyle" data-dismiss="modal">Cancel</button>
+                   <button type="button" class="btn btnstyle1">Get Website Badge</button>
+                 </div>
+               </div>
+             </div>
+           </div>
+
+           <!-- Prints Modal -->
+           <div class="modal fade" id="exampleModalCenter4" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+             <div class="modal-dialog modal-dialog-centered" role="document">
+               <div class="modal-content">
+                 <div class="modal-header">
+                   <h5 class="modal-title" id="exampleModalCenterTitle"><i class="far fa-map mr-3 "></i><span
+                       class="inviteheading">Invite via Prints Badges</span></h5>
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                   </button>
+                 </div>
+                 <div class="modal-body mymodaldesign">
+                   <div class="img_design">
+                     <img src="/dist/img/popup-prints.svg">
+                   </div>
+                   <div class="img_lst">
+                     <div class="link_item">
+                       <div class="card listcard">
+                         <div class="card-body">
+                           <i class="fas fa-plus-square fa-3x myicon "></i>
+                           <p class="brotext">Get brochures</p>
+                         </div>
+                       </div>
+                     </div>
+                     <div class="link_item">
+                       <div class="card listcard">
+                         <div class="card-body">
+                           <i class="fas fa-plane-departure fa-3x   myicon"></i>
+                           <p class="brotext">Get flyers</p>
+                         </div>
+                       </div>
+                     </div>
+                     <div class="link_item">
+                       <div class="card listcard">
+                         <div class="card-body">
+                           <i class="fab fa-twitter fa-3x   myicon"></i>
+                           <p class="brotext">Get social media</p>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+
+                 </div>
+                 <div class="modal-footer">
+                   <button type="button" class="btn btnstyle" data-dismiss="modal">Cancel</button>
+
+                 </div>
+               </div>
+             </div>
+           </div>
+           <!--end  modal for scoial icons -->
+           <!-- 4 grid box -->
+           <div class="row">
+             <div class="col-md-3">
+               <a href="/doc_edit">
+                 <div class="card">
+                   <div class="card-body">
+                     <div class="text-center">
+                       <i class="myicon fas fa-edit "></i>
+                       <br>
+                       <small class="small_text">Edit Waiting Room</small>
+                     </div>
+                   </div>
+                 </div>
+               </a>
+             </div>
+             <div class="col-md-3">
+               <a href="/accounts">
+                 <div class="card">
+                   <div class="card-body">
+                     <div class="text-center">
+                       <i class="myicon  fas fa-cogs"></i>
+                       <br>
+                       <small class="small_text">Account Settings</small>
+
+                     </div>
+                   </div>
+                 </div>
+               </a>
+             </div>
+             <div class="col-md-3">
+               <div class="card">
+                 <div class="card-body">
+                   <div class="text-center">
+
+                     <i class="myicon far fa-comments"></i>
+                     <br>
+                     <small class="small_text">User Community</small>
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <div class="col-md-3">
+               <div class="card">
+                 <div class="card-body">
+                   <div class="text-center">
+
+                     <i class="myicon fas fa-cart-arrow-down"></i>
+                     <br>
+                     <small class="small_text">Telehealth Shop</small>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <!-- patient deatil popup -->
+            <div class="popuptext" id="myPopup">
+            <div class="row">
+              <div class="col-md-3">
+                <img src="/dist/img/popup-prints.svg" class="w-100">
+              </div>
+              <div class="col-md-9">
+                <div class="d-flex flex-row ">
+                  <div class="p-2 pat_name" id="g_pname">Patient name</div>
+                  <div class="p-2 microphone"><i class="fas fa-microphone mr-2"></i></div>
+                  <div class="p-2 check"><i class="fas fa-check mr-2"></i></div>
+                  <div class="p-2 videoicon"> <i class="fas fa-video mr-2"></i></div>
+                </div>
+                <p class="time_status"> <i class="fas fa-circle online mr-2"></i>Waiting <%= initial %><%= name %></p>
+                <div class="system_details">
+                  <div class="d-flex flex-row">
+                <!-- <p><i class="fas fa-tv mr-2 ml-2"></i>Laptop/desktop</p>  -->
+                <p><i class="fab fa-linux mr-2 ml-2" id="OS"></i></p>
+                <p><i class="fab fa-chrome  mr-2 ml-2" id="brser"></i></p>
+              </div>
+                </div>
+              <!-- <span class="font_icons">  <p class="mr-2">gokul</p><i class="fas fa-microphone mr-2"></i><i class="fas fa-check mr-2"></i> <i class="fas fa-video mr-2"></i></span>   -->
+              </div>
+            </div>
+            <!-- buttons -->
+            <div class="row mt-5">
+              <div class="col-md-3"><button type="button " class="btn btn-info mybtn"><i class="fas fa-comment-alt mr-2" ></i>Chat</button></div>
+              <div class="col-md-3"><button type="button " class="btn btn-info mybtn"><i class="fas fa-microphone mr-2"></i>Audio Call</button></div>
+              <div class="col-md-3"><button type="button " class="btn btn-light mybtn"><i class="fas fa-bars mr-2"></i>More</button></div>
+              <div class="col-md-3"><button type="button " class="btn btn-outline-danger mybtn"><i class="fas fa-times mr-2" ></i>Remove</button></div>
+            </div>
+            </div>
+           <!-- 4 grid box -->
+         </div>
+         <!-- popup for patient info -->
+       </section>
+       <!-- /.content -->
+     </div>
+     <!-- /.content-wrapper -->
+     </div>
+    <div class="open-button" onclick="sendmsg(this)" id="p_que_msg">
+      <% for( var display of result) { %>
+        <% if(display.d_id == doc_id) { %>
+          <% if(display.patient_name !== '') { %>
+            <p class="mx-auto" ><%= display.patient_name %>
+              <input type="text" style="display: none" class="doc_msg_id" value="<%= doc_id %>">
+              <input type="text" style="display: none" class="msg_url" value="<%= display.url %>">
+            </p>
+          <% }  %>
+        <% }  %>
+      <% }  %>
+    </div>
+     <div id="chatpopup">
+       <ul class="list-group msg_ul scrollbar1">
+       </ul>
+       <form>
+         <div class="input-group mb-3">
+           <input type="text" class="form-control" placeholder="Enter the Message" id="text_msgs" name="">
+           <input type="text" style="display: none" class="form-control" id="doct_id" value="<%= doc_id %>" name="">
+           <input type="text" style="display: none" class="form-control" id="pat_url" value="<%= doc_id %>" name="">
+           <div class="input-group-append">
+             <input type="button" class="btn btn-info btn-sm" id="send_msg" value="Send">
+           </div>
+         </div>
+       </form>
+     </div>
+     <!-- <footer class="main-footer">
+      <strong>Copyright &copy; 2020 Conitor.</strong>
+      All rights reserved.
+    </footer> -->
+   </div>
+
+
+   <input type="text" style="display: none" class="init" value="<%= initial %>">
+   <input type="text" style="display: none" class="doc" value="<%= name %>">
+   <input type="text" style="display: none" class="r_name" value="<%= room_name %>">
+   <script src="/plugins/jquery/jquery.min.js"></script>
+
+   <!-- jQuery UI 1.11.4 -->
+   <script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+   </script>
+
+
+   <!-- overlayScrollbars -->
+   <script src="/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+   <!-- AdminLTE App -->
+   <script src="/dist/js/adminlte.js"></script>
+   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+   <script src="/dist/js/pages/dashboard.js"></script>
+   <!-- progress button js -->
+   <script src="/dist/js/modernizr.custom.js"></script>
+   <script src="/dist/js/classie.js"></script>
+   <script src="/dist/js/progressButton.js"></script>
+   <!--tele phone country select -->
+   <script src="/dist/js/intlTelInput.js"></script>
+
+   <script src="/dist/js/customA11ySelect.js"></script>
+   <script src="/js/index.js"></script>
+   <script>
+    
+     $(document).ready(function () {
+       $("#p_que_msg").click(function () {
+         $("#chatpopup").slideToggle("fast");
+       });
+     });
+     // google calander
+     // Function which returns a minimum of two digits in case the value is less than 10
+const getTwoDigits = (value) => value < 10 ? `0${value}` : value;
+
+const formatDate = (date) => {
+  const day = getTwoDigits(date.getDate());
+  const month = getTwoDigits(date.getMonth() + 1); // add 1 since getMonth returns 0-11 for the months
+  const year = date.getFullYear();
+
+  return `${year}-${month}-${day}`;
+}
+
+const formatTime = (date) => {
+  const hours = getTwoDigits(date.getHours());
+  const mins = getTwoDigits(date.getMinutes());
+  const sec = getTwoDigits(date.getSeconds());
+
+  return `${hours}:${mins}:${sec}`;
+}
+// getting time and placing in input tag
+const date = new Date();
+document.getElementById('currentDate').value = formatDate(date);
+document.getElementById('currentTime').value = formatTime(date);
+
+var initial = $('.init').val();
+var doc = $('.doc').val();
+var r_name = $('.r_name').val();
+
+// time setup for google calandar
+$('#gcal').on('click', function(){
+  var dates = $('#currentDate').val();
+  var time = $('#currentTime').val();
+    dates = dates.replace (/-/g, "");
+    time = time.replace (/:/g, "");
+// +30 mins for time
+  var d1 = new Date ();
+  var d2 = new Date ( d1 );
+    d2.setMinutes ( d1.getMinutes() + 30 );
+    var time2 = d2.toString().substr(16,8)
+    time2 = time2.replace (/:/g, "");
+
+// anchor tag code
+  var pass = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=pontis.me%20Telemedicine%20Call%20with%20'+initial+'.%20'+doc+'&dates='+dates+'T'+time+'/'+dates+'T'+time2+'&details=Use%20a%20computer%20or%20device%20with%20a%20good%20internet%20connection%20and%20webcam.%20If%20you%20run%20into%20issues%20connecting%2C%20restart%20your%20computer%20or%20check%20out%20the%20pontis.me%20https%3A%2F%2Fhelp.pontis.me.%0D%0A%0D%0ASimple%2C%20free%2C%20and%20secure%20telemedicine%20powered%20by%20https%3A%2F%2Fpontis.me&location=https%3A%2F%2Fpontis.me%2F/'+r_name+'';
+
+  $('#gcal').attr('href', pass);
+})
+// for yahoo
+$('#yahoo').on('click', function(){
+  var dates = $('#currentDate').val();
+  var time = $('#currentTime').val();
+    dates = dates.replace (/-/g, "");
+    time = time.replace (/:/g, "");
+
+// anchor tag code
+var yahoopas =
+'http://calendar.yahoo.com/?v=60&view=d&type=20&TITLE=pontis.me%20Telemedicine%20Call%20with%20'+initial+'.%20'+doc+'&ST='+dates+'T'+time+'&DUR=000&DESC=Use%20a%20computer%20or%20device%20with%20a%20good%20internet%20connection%20and%20webcam.%20If%20you%20run%20into%20issues%20connecting%2C%20restart%20your%20computer%20or%20check%20out%20the%20pontis.me%20https%3A%2F%2Fhelp.pontis.me.%0D%0A%0D%0ASimple%2C%20free%2C%20and%20secure%20telemedicine%20powered%20by%20https%3A%2F%2Fpontis.me&in_loc=https%3A%2F%2Fpontis.me%2F/'+r_name+'';
+$('#yahoo').attr('href', yahoopas);
+})
+
+// for outlook
+
+$('#out_cal').on('click', function(){
+  var dates = $('#currentDate').val();
+  var time = $('#currentTime').val();
+    dates = dates.replace (/-/g, "");
+    time = time.replace (/:/g, "");
+  // +30 mins for time
+  var d1 = new Date ();
+  var d2 = new Date ( d1 );
+    d2.setMinutes ( d1.getMinutes() + 30 );
+  var time2 = d2.toString().substr(16,8)
+    time2 = time2.replace (/:/g, "");
+
+  var outlook = 'http://calendar.live.com/calendar/calendar.aspx?rru=addevent&summary=pontis.me%20Telemedicine%20Call%20with%20'+initial+'.%20'+doc+'&dtstart='+dates+'T'+time+'&dtend='+dates+'T'+time2+'&description=Use%20a%20computer%20or%20device%20with%20a%20good%20internet%20connection%20and%20webcam.%20If%20you%20run%20into%20issues%20connecting%2C%20restart%20your%20computer%20or%20check%20out%20the%20pontis.me%20https%3A%2F%2Fhelp.pontis.me.%0D%0A%0D%0ASimple%2C%20free%2C%20and%20secure%20telemedicine%20powered%20by%20https%3A%2F%2Fpontis.me&location=https%3A%2F%2Fpontis.me%2F'+r_name+'';
+  $('#out_cal').attr('href', yahoopas);
+})
+// for microsoft calander
+$('#Microsoft').on('click', function(){
+  var dates = $('#currentDate').val();
+  var time = $('#currentTime').val();
+    dates = dates.replace (/-/g, "");
+    time = time.replace (/:/g, "");
+  // +30 mins for time
+  var d1 = new Date ();
+  var d2 = new Date ( d1 );
+    d2.setMinutes ( d1.getMinutes() + 30 );
+  var time2 = d2.toString().substr(16,8)
+    time2 = time2.replace (/:/g, "");
+
+  var microsoft = 'http://calendar.live.com/calendar/calendar.aspx?rru=addevent&summary=Pontis.me%20Telemedicine%20Call%20with%20'+initial+'.%20'+doc+'&dtstart='+dates+'T'+time+'&dtend='+dates+'T'+time2+'&description=Use%20a%20computer%20or%20device%20with%20a%20good%20internet%20connection%20and%20webcam.%20If%20you%20run%20into%20issues%20connecting%2C%20restart%20your%20computer%20or%20check%20out%20the%20Pontis.me%20https%3A%2F%2Fhelp.pontis.me.%0D%0A%0D%0ASimple%2C%20free%2C%20and%20secure%20telemedicine%20powered%20by%20https%3A%2F%2Fpontis.me&location=https%3A%2F%2Fpontis.me%2F'+r_name;
+  $('#Microsoft').attr('href', microsoft);
+})
+
+// icalander .ics file
+
+ /*! ics.js Wed Aug 20 2014 17:23:02 */
+    var saveAs=saveAs||function(e){"use strict";if(typeof e==="undefined"||typeof navigator!=="undefined"&&/MSIE [1-9]\./.test(navigator.userAgent)){return}var t=e.document,n=function(){return e.URL||e.webkitURL||e},r=t.createElementNS("http://www.w3.org/1999/xhtml","a"),o="download"in r,a=function(e){var t=new MouseEvent("click");e.dispatchEvent(t)},i=/constructor/i.test(e.HTMLElement)||e.safari,f=/CriOS\/[\d]+/.test(navigator.userAgent),u=function(t){(e.setImmediate||e.setTimeout)(function(){throw t},0)},s="application/octet-stream",d=1e3*40,c=function(e){var t=function(){if(typeof e==="string"){n().revokeObjectURL(e)}else{e.remove()}};setTimeout(t,d)},l=function(e,t,n){t=[].concat(t);var r=t.length;while(r--){var o=e["on"+t[r]];if(typeof o==="function"){try{o.call(e,n||e)}catch(a){u(a)}}}},p=function(e){if(/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(e.type)){return new Blob([String.fromCharCode(65279),e],{type:e.type})}return e},v=function(t,u,d){if(!d){t=p(t)}var v=this,w=t.type,m=w===s,y,h=function(){l(v,"writestart progress write writeend".split(" "))},S=function(){if((f||m&&i)&&e.FileReader){var r=new FileReader;r.onloadend=function(){var t=f?r.result:r.result.replace(/^data:[^;]*;/,"data:attachment/file;");var n=e.open(t,"_blank");if(!n)e.location.href=t;t=undefined;v.readyState=v.DONE;h()};r.readAsDataURL(t);v.readyState=v.INIT;return}if(!y){y=n().createObjectURL(t)}if(m){e.location.href=y}else{var o=e.open(y,"_blank");if(!o){e.location.href=y}}v.readyState=v.DONE;h();c(y)};v.readyState=v.INIT;if(o){y=n().createObjectURL(t);setTimeout(function(){r.href=y;r.download=u;a(r);h();c(y);v.readyState=v.DONE});return}S()},w=v.prototype,m=function(e,t,n){return new v(e,t||e.name||"download",n)};if(typeof navigator!=="undefined"&&navigator.msSaveOrOpenBlob){return function(e,t,n){t=t||e.name||"download";if(!n){e=p(e)}return navigator.msSaveOrOpenBlob(e,t)}}w.abort=function(){};w.readyState=w.INIT=0;w.WRITING=1;w.DONE=2;w.error=w.onwritestart=w.onprogress=w.onwrite=w.onabort=w.onerror=w.onwriteend=null;return m}(typeof self!=="undefined"&&self||typeof window!=="undefined"&&window||this.content);if(typeof module!=="undefined"&&module.exports){module.exports.saveAs=saveAs}else if(typeof define!=="undefined"&&define!==null&&define.amd!==null){define("FileSaver.js",function(){return saveAs})}
+
+    var ics=function(e,t){"use strict";{if(!(navigator.userAgent.indexOf("MSIE")>-1&&-1==navigator.userAgent.indexOf("MSIE 10")))
+    {void 0===e&&(e="olki6hbgtjki"),void 0===t&&(t="Calendar");var r=-1!==navigator.appVersion.indexOf("Win")?"\r\n":"\n",n=[],i=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:"+"node-calander", "BEGIN:VEVENT",].join(r),o=r+"END:VCALENDAR",a=["SU","MO","TU","WE","TH","FR","SA"];return{events:function(){return n},calendar:function(){return i+r+n.join(r)+o},addEvent:function(t,i,o,l,u,s){if(void 0===t||void 0===i||void 0===o||void 0===l||void 0===u)return!1;if(s&&!s.rrule){if("YEARLY"!==s.freq&&"MONTHLY"!==s.freq&&"WEEKLY"!==s.freq&&"DAILY"!==s.freq)throw"Recurrence rrule frequency must be provided and be one of the following: 'YEARLY', 'MONTHLY', 'WEEKLY', or 'DAILY'";if(s.until&&isNaN(Date.parse(s.until)))throw"Recurrence rrule 'until' must be a valid date string";if(s.interval&&isNaN(parseInt(s.interval)))throw"Recurrence rrule 'interval' must be an integer";if(s.count&&isNaN(parseInt(s.count)))throw"Recurrence rrule 'count' must be an integer";if(void 0!==s.byday){if("[object Array]"!==Object.prototype.toString.call(s.byday))throw"Recurrence rrule 'byday' must be an array";if(s.byday.length>7)throw"Recurrence rrule 'byday' array must not be longer than the 7 days in a week";s.byday=s.byday.filter(function(e,t){return s.byday.indexOf(e)==t});for(var c in s.byday)if(a.indexOf(s.byday[c])<0)throw"Recurrence rrule 'byday' values must include only the following: 'SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'"}}var g=new Date(l),d=new Date(u),f=new Date,S=("0000"+g.getFullYear().toString()).slice(-4),E=("00"+(g.getMonth()+1).toString()).slice(-2),v=("00"+g.getDate().toString()).slice(-2),y=("00"+g.getHours().toString()).slice(-2),A=("00"+g.getMinutes().toString()).slice(-2),T=("00"+g.getSeconds().toString()).slice(-2),b=("0000"+d.getFullYear().toString()).slice(-4),D=("00"+(d.getMonth()+1).toString()).slice(-2),N=("00"+d.getDate().toString()).slice(-2),h=("00"+d.getHours().toString()).slice(-2),I=("00"+d.getMinutes().toString()).slice(-2),R=("00"+d.getMinutes().toString()).slice(-2),M=("0000"+f.getFullYear().toString()).slice(-4),w=("00"+(f.getMonth()+1).toString()).slice(-2),L=("00"+f.getDate().toString()).slice(-2),O=("00"+f.getHours().toString()).slice(-2),p=("00"+f.getMinutes().toString()).slice(-2),Y=("00"+f.getMinutes().toString()).slice(-2),U="",V="";y+A+T+h+I+R!=0&&(U="T"+y+A+T,V="T"+h+I+R);var B,C=S+E+v+U,j=b+D+N+V,m=M+w+L+("T"+O+p+Y);if(s)if(s.rrule)B=s.rrule;else{if(B="rrule:FREQ="+s.freq,s.until){var x=new Date(Date.parse(s.until)).toISOString();B+=";UNTIL="+x.substring(0,x.length-13).replace(/[-]/g,"")+"000000Z"}s.interval&&(B+=";INTERVAL="+s.interval),s.count&&(B+=";COUNT="+s.count),s.byday&&s.byday.length>0&&(B+=";BYDAY="+s.byday.join(","))}(new Date).toISOString();var H=["CLASS:PUBLIC","DESCRIPTION:"+i, "UID:"+n.length+"@"+e,"DTSTAMP="+m,"DTSTART=:"+m,"DTEND=:"+j,"LOCATION:"+o,"SUMMARY;Pontis.me Telemedicine Call with "+initial+"."+doc+"","TRANSP:TRANSPARENT","END:VEVENT",];return B&&H.splice(4,0,B),H=H.join(r),n.push(H),H},download:function(e,t){if(n.length<1)return!1;t=void 0!==t?t:".ics",e=void 0!==e?e:"calendar";var a,l=i+r+n.join(r)+o;if(-1===navigator.userAgent.indexOf("MSIE 10"))a=new Blob([l]);else{var u=new BlobBuilder;u.append(l),a=u.getBlob("text/x-vCalendar;charset="+document.characterSet)}return saveAs(a,e+t),l},build:function(){return!(n.length<1)&&i+r+n.join(r)+o}}}console.log("Unsupported Browser")}};
+
+// download code
+   var startdate = $('#currentDate').val();
+   var i_d2 = new Date (date);
+   i_d2.setMinutes ( date.getMinutes() + 30 );
+   enddate = i_d2;
+
+    cal_single = ics();
+    cal_single.addEvent('dr', 'Use a computer or device with a good internet connection', 'https://pontis.me:5060/index/#'+r_name, startdate, enddate);
+    // You can use this for easy debugging
+    makelogs = function(obj) {
+      console.log('Events Array');
+      console.log('=================');
+      console.log(obj.events());
+      console.log('Calendar With Header');
+      console.log('=================');
+      console.log(obj.calendar());
+    }
+
+
+</script>
+ </body>
+
+ </html>

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="dist/css/login_signup.css">
+    <link href="dist/css/customA11ySelect.css" rel="stylesheet">
+    <title>BellaPontiS</title>
+</head>
+
+<body>
+<div class="container">
+  <div class="form">
+    <form action="">
+      <div class="text-center brandlink">
+        <img src="dist/img/bellapoint.png" class="imgwidth">
+      </div>
+      <div class="form-title">
+        <h2>Sign Up</h2>
+      </div>
+      <div class="insideform">
+        <select id="initial" name="category" required>
+          <option value="Dr" selected="selected">Dr.</option>
+          <option value="Mr">Mr.</option>
+          <option value="Miss">Miss.</option>
+          <option value="Mrs">Mrs.</option>
+          <option value="Ms">Ms.</option>
+          <option value="Other">other.</option>
+        </select>
+        <div class="form-group">
+          <input type="text" class="form-control inputbox" name="firstname" id="firstname"
+          placeholder="First Name" required>
+          <span class="text-danger" id="first" style="display: none">enter your firstname</span>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control inputbox" name="lastname" id="lastname"
+          placeholder="Last Name" required>
+          <span class="text-danger" id="last" style="display: none">enter your Lastname</span>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control inputbox" name="room_name" id="room_name"
+          placeholder="Room Name eg;Drwitch" required>
+          <span class="text-danger" id="room" style="display: none">enter your room_name</span>
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control inputbox" name="email" id="email" placeholder="Email"
+          required>
+          <span class="text-danger" id="mail" style="display: none">enter your email</span>
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control inputbox" name="c_email" id="c_email"
+          placeholder="Confirm Email" required>
+          <span class="text-danger" id="c_mail" style="display: none">email does not match</span>
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control inputbox" name="password" id="password"
+          placeholder="Password " required>
+          <span class="text-danger" id="pass" style="display: none">enter password</span>
+        </div>
+        <div class="form-check mt-2">
+          <input type="checkbox" class="form-check-input mycheckbox" name="provider" value="1" id="provider">
+          <label class="form-check-label checkboxlabel" for="exampleCheck1">I am using BellaPontis as a healthcare
+          provider, not a patient.</label>
+        </div>
+        <div class="form-check mt-2">
+          <span id="ter" style="display: none" class="text-danger"></span>
+          <input type="checkbox" class="form-check-input mycheckbox" name="terms" value="1" id="terms">
+          <label class="form-check-label checkboxlabel" for="exampleCheck1">I agree to the Terms and
+          Conditions.</label>
+        </div>
+      </div>
+      <div class="form-group button">
+        <button class="mybutton" id="signup">Sign Up</button>
+      </div>
+      <div class="text-center">
+        <p class="acc">Already have an account? <span><a href="doc_login" class="acc">Login</a></span></p>  
+      </div>
+    </form>
+  </div>
+</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="dist/js/customA11ySelect.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#initial').customA11ySelect();
+        });
+    </script>
+<script type="text/javascript">
+  $(document).ready(function () {
+      $('#signup').on('click', function (e) {
+          e.preventDefault();
+          var initial = $('#initial').val();
+          var firstname = $('#firstname').val();
+          var lastname = $('#lastname').val();
+          var email = $('#email').val();
+          var c_email = $('#c_email').val();
+          var password = $('#password').val();
+          var room_name = $('#room_name').val();
+          var provider = $('#provider').is(":checked");
+          var terms = $('#terms').is(":checked");
+          // checking input fields
+          if (firstname == '') {
+            $('#first').show();
+          }
+          if (lastname == '') {
+            $('#last').show();
+          }
+          if (room_name == '') {
+            $('#room').show();
+          }
+          if (email == '') {
+            $('#mail').show();
+          }
+          if (password == '') {
+            $('#pass').show();
+          }
+          // check same email
+          if (email !== c_email) {
+            $('#c_mail').show();
+          } 
+          // check terms and condition
+          else {
+              if (terms !== true) {
+                $('#ter').show();
+              }
+          // ajax call if all input fields are valid 
+          if (terms !== false) {
+              provider = '1';
+              // console.log(initial + ',' + firstname + ',' + lastname + ',' + email + ',' +
+              //     c_email + ',' + password + ',' + room_name + ',' + provider + ',' +
+              //     terms);
+              $.ajax({
+                  type: 'POST',
+                  url: '/register_doctor',
+                  data: {
+                      initial: initial,
+                      firstname: firstname,
+                      lastname: lastname,
+                      email: email,
+                      c_email: c_email,
+                      password: password,
+                      room_name: room_name,
+                      provider: provider,
+                  },
+                  success: function (data) {
+                      console.log(data);
+                      if (data == 'duplicate') {
+                          alert('room is already used');
+                      }
+                      else{
+                        window.location.href = "https://pontis.me:5060/doc_login"
+                      }
+                    },
+                  });
+                }
+              }
+            })
+          })
+    </script>
+</body>
+
+</html>

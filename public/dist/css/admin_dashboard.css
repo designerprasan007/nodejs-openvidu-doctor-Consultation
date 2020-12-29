@@ -1,0 +1,41 @@
+/* div.dataTables_wrapper {
+    width: 800px;
+    margin: 0 auto;
+} */
+div.dataTables_wrapper {
+    width: 80% !important;
+    margin: 0 auto;
+}
+
+.callicons {
+    height: 17px;
+    width: 7px;
+    position: relative;
+    top: -8px;
+    right: 12px;
+    font-size: 16px;
+}
+
+thead>tr>th.sorting_asc,
+table.dataTable thead>tr>th.sorting_desc,
+table.dataTable thead>tr>th.sorting,
+table.dataTable thead>tr>td.sorting_asc,
+table.dataTable thead>tr>td.sorting_desc,
+table.dataTable thead>tr>td.sorting {
+    padding-right: 30px;
+    font-size: 15px;
+    color: grey;
+    text-align: center;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    text-align: center;
+    background-color: rgba(233, 245, 244, 0.49)!important;
+}
+.table-striped tbody tr:nth-of-type(even) {
+    text-align: center;
+    background-color: rgba(247, 248, 248, 0.49)!important;
+}
+.statusname
+{
+    font-size: 12px;
+}

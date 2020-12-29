@@ -1,0 +1,17 @@
+
+.main_title
+{
+    font-size: 30px;
+    font-weight: 400;
+    margin: 0;
+    padding-bottom: 12px;
+}
+.table thead th
+{
+    border-bottom:none!important;
+    color: grey;
+}
+.table td, .table th
+{
+    border-top:none!important;
+}

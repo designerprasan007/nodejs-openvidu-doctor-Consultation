@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BellaPontiS</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Ionicons -->
+    <!-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <!-- <link rel="stylesheet" href="/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"> -->
+    <!-- iCheck -->
+    <!-- <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css"> -->
+    <!-- JQVMap -->
+    <!-- <link rel="stylesheet" href="/plugins/jqvmap/jqvmap.min.css"> -->
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+    <!-- In common to all the pages  style -->
+    <link rel="stylesheet" href="/dist/css/index.css">
+    <!-- cusrom select -->
+    <link href="/dist/css/customA11ySelect.css" rel="stylesheet">
+    <!-- Respective page  style -->
+    <link rel="stylesheet" href="/dist/css/accountsdashboard.css">
+    <link rel="stylesheet" href="/dist/css/groupcall.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <!-- <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker.css"> -->
+    <!-- summernote -->
+    <!-- <link rel="stylesheet" href="/plugins/summernote/summernote-bs4.css"> -->
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- Logo image -->
+    <link rel="icon" href="/dist/img/bella1.png" type="image/x-icon">
+    <script src="/js/openvidu-browser-2.14.0.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/screen.js"></script>
+    <style type="text/css">
+#videos video[id^="remote-video-str_SCR"] {
+ position: absolute!important;
+ top: 300px!important;
+}
+    </style>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+
+            </ul>
+
+            <!-- SEARCH FORM -->
+
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Messages Dropdown Menu -->
+
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                        <i class="fas fa-th-large"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="accountsdashboard" class="brand-link">
+                <img src="/dist/img/bellapoint.png" alt="Bella PointS" class="brand-image " style="opacity: .8">
+                <span class="brand-text font-weight-light" style="position: relative;
+        top: 6px;">BellaPontiS</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 d-flex">
+
+                    <div class="info">
+                        <a href="#" class="d-block">In Call With</a>
+                        <span class="text-white"> patient name</span>
+                    </div>
+                </div>
+                <div class="user-panel image mt-2 info">
+
+                    <ul class="nav nav-pills nav-sidebar flex-column mb-2 " data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <li class="nav-item has-treeview menu-open mt-2">
+                            <div class="d-flex flex-row startcall justify-content-between p-2">
+                                <div class=""><img src="dist/img/avatar2.png" class="rounded-circle h-20"
+                                        alt="User Image" style="border: 1px solid white; width: 30px;"></div>
+                                <div class=" " id="patientname"><span>patientname</span></div>
+                                <div class=" " id="startcallbutton"><span><a href="accountsdashboard.html"
+                                            class="mybutton">Start call</a></span></div>
+                                <div class=""><i class="fas fa-ellipsis-v text-white "></i></div>
+                            </div>
+                        </li>
+                        <li class="nav-item has-treeview menu-open mt-2">
+                            <div class="d-flex flex-row startcall justify-content-between p-2">
+                                <div class=""><img src="dist/img/avatar2.png" class="rounded-circle h-20"
+                                        alt="User Image" style="border: 1px solid white; width: 30px;"></div>
+                                <div class=" " id="patientname"><span>patientname</span></div>
+                                <div class=" " id="startcallbutton"><span><a href="accountsdashboard.html"
+                                            class="mybutton">Start call</a></span></div>
+                                <div class="" id="patient_details"><i class="fas fa-ellipsis-v text-white "></i></div>
+                            </div>
+
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- Sidebar Menu -->
+                <!-- <div class="user-panel mt-3 d-flex">
+        
+        <div class="info">
+          <a href="#" class="d-block">Accounts</a>
+        </div>
+      </div> -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="javascript:getscreen();" class="nav-link ">
+                                <i class="nav-icon fas fa-camera "></i>
+                                <p>
+                                    Photo Capture
+                                </p>
+                            </a>
+                            <!-- dont delete this a tag written by prasanna -->
+                            <a style="display: none" href="" id="blank"></a>
+                            <!-- dont delete this a tag written by prasanna -->
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Group_Call" class="nav-link ">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>
+                                    Group Call
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item has-treeview">
+                            <a class="nav-link active" href="/Share_Screen" onclick="joinSessionscreen()">
+                                <i class="nav-icon fas fa-desktop "></i>
+                                <p>
+                                    Screen Share
+
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-upload"></i>
+                                <p>
+                                    File Transfer
+
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon far fa-credit-card "></i>
+                                <p>
+                                    Payment
+
+                                </p>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" style="background-color: rgb(195, 196, 197);">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+            </div>
+            <!-- /.content-header -->
+
+            <!-- Main content -->
+            <section class="content">
+
+                <div id="session_screen">
+                    <div id="screen_sh" style="height: 200px; width: 200px"></div>
+                </div>
+                <div id="session">
+                <div id="videos" class="remotevideo  ">
+                </div>
+
+
+                <div class="video-container" id="selfvideo">
+                </div>
+
+                </div>
+                <!-- </div> -->
+
+            </section>
+
+            <!-- /.content -->
+        </div>
+
+    </div>
+
+    <!-- ./wrapper -->
+
+    <!-- jQuery -->
+    <script src="/plugins/jquery/jquery.min.js"></script>
+    <!-- <script
+  src="https://code.jquery.com/jquery-3.5.0.min.js"
+  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+  crossorigin="anonymous"></script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script> -->
+
+    <!-- jQuery UI 1.11.4 -->
+    <!-- <script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script> -->
+    <script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <!-- <script>
+    $.widget.bridge('uibutton', $.ui.button)
+  </script> -->
+    <!-- Bootstrap 4 -->
+    <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <!-- <script src="/plugins/chart.js/Chart.min.js"></script> -->
+    <!-- Sparkline -->
+    <!-- <script src="/plugins/sparklines/sparkline.js"></script> -->
+    <!-- JQVMap -->
+    <!-- <script src="/plugins/jqvmap/jquery.vmap.min.js"></script> -->
+    <!-- <script src="/plugins/jqvmap/maps/jquery.vmap.usa.js"></script> -->
+    <!-- jQuery Knob Chart -->
+    <!-- <script src="/plugins/jquery-knob/jquery.knob.min.js"></script> -->
+    <!-- daterangepicker -->
+    <!-- <script src="/plugins/moment/moment.min.js"></script>
+  <script src="/plugins/daterangepicker/daterangepicker.js"></script> -->
+    <!-- Tempusdominus Bootstrap 4 -->
+    <!-- <script src="/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script> -->
+    <!-- Summernote -->
+    <!-- <script src="/plugins/summernote/summernote-bs4.min.js"></script> -->
+    <!-- overlayScrollbars -->
+    <script src="/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/dist/js/adminlte.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="/dist/js/pages/dashboard.js"></script>
+    <!-- custom select -->
+    <script src="/dist/js/customA11ySelect.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- <script src="http://momentjs.com/downloads/moment.js"></script> -->
+    <!-- AdminLTE for demo purposes -->
+    <!-- <script src="/dist/js/demo.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-alpha1/html2canvas.js"></script>
+    <script type="/js/acc_dash.js"></script>
+    <script type="text/javascript">
+        // screen shot
+     
+            // var remote_id = document.querySelectorAll('video[id^="remote-video-str_SCR"]');
+            // remote_id.style.position = "relative";
+            // remote_id.style.top = "300px";
+    
+
+        function getscreen() {
+            var caption = 'bellapont';
+            $('#caption-text').html(caption);
+            html2canvas(document.body, {
+                dpi: 192,
+                onrendered: function (canvas) {
+                    $('#blank').attr('href', canvas.toDataURL('image/png'));
+                    $('#blank').attr('download', caption + '.png');
+                    $('#blank')[0].click();
+                    console.log(canvas.toDataURL('image/png'));
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
